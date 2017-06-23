@@ -1,15 +1,7 @@
 <?php
-		// if(isset($_POST['Submit'])&& function_exists($_POST['Submit']))
-		// {
-		// 	$action= $_POST['Submit'];
-		// 	$var= isset($_POST['Submit'])? $_POST['Submit'] : null;
-		// 	$getData= $action($var);
-		// }
 		
 
-		function events()
-		{
-		if (isset($_POST['Submit']))
+		 function events()
 		{
 			$servername = "localhost";
 			$username = "root";
@@ -35,25 +27,24 @@
 
 			if ($conn->query($sql) === TRUE) 
 			{
-			    echo "<h1>Information has been successfully saved.</h1> <a href='host_control_page.php'>HOME</a><hr>";
-			} else 
+			    return ("Information has been successfully saved.");
+			} 
+
+			else 
 
 			{
-			    echo "Error: " . $sql . "<br>" . $conn->error ."<a href='host_control_page.php'> HOME</a><hr>";
+			    return "Error: " . $sql . "<br>" . $conn->error ;
 			
 			}
 			
 
 			$conn->close();
+			
 		}
-		}
-?>
 
-<?php
+
 		function guest_details()
 		{
-		if (isset($_POST['Submit1']))
-		{	
 			$servername = "localhost";
 			$username = "root";
 			$password = "";
@@ -77,34 +68,29 @@
 
 			if ($conn->query($sql) === TRUE) 
 			{
-			    echo "<h1>"."Information has been successfully saved."."</h1>"."<a href='host_control_page.php'>"."HOME"."</a><hr>";
+			    return "Information has been successfully saved.";
 			} else 
 
 			{
-			    echo "Error:"  . $sql . "<br>" . $conn->error ."<a href='host_control_page.php'> HOME</a><hr>";
+			    return "Error:"  . $sql . "<br>" . $conn->error;
 			}
 
 			$conn->close();
+			
 		}
-		}
-?>
+		
 
 
-<?php
 		function update_details()
-		{
-		if (isset($_POST['Submit']))
 		{
 			$servername = "localhost";
 			$username = "root";
 			$password = "";
 			$dbname = "database_for_coloredcow";
 
-			   // $guest_name=    @$_POST['guest_name'];
-			   $your_email= @$_POST['your_email'];
-			   $preference= @$_POST['preference'];
-			   // $phone_number=  @$_POST['phone_number'];
-
+			$your_email= @$_POST['your_email'];
+			
+			
 			// Create connection
 			$conn = new mysqli($servername, $username, $password, $dbname);
 			// Check connection
@@ -120,28 +106,112 @@
 			if ($p>0) 
 			{
 				$sql = "UPDATE new_guests
-					SET status='YES', food_preference='$preference'
-					WHERE guest_emailid='$your_email'";
+						SET status='YES'
+						WHERE guest_emailid='$your_email'";
 
-			if ($conn->query($sql) === TRUE) 
-			{
-			    echo "<h1>THANK YOU FOR YOUR PRECIOUS TIME....WE WILL BE WAITING FOR YOU...</h1> <a href='index.php'> HOME</a><hr>";
-			} 
+				if ($conn->query($sql) === TRUE) 
+				{
+				    return "THANK YOU FOR YOUR PRECIOUS TIME....WE WILL BE WAITING FOR YOU...";
+				} 
 
-			else 
-			{
-			    echo "Error:"  . $sql . "<br>" . $conn->error ."<a href='index.php'> HOME</a><hr>";
-			}
+				else 
+				{
+				    return "Error:"  . $sql . "<br>" . $conn->error;
+				}
 			
 			}
 			
 			else
 			{
-				echo"<h1>SORRY! BUT YOU ARE NOT IN OUR GUEST LIST. HOPE TO SEE YOU ANOTHER TIME</h1> <a href='index.php'> HOME</a><hr>";
+				return "SORRY BUT YOU ARE NOT IN OUR GUEST LIST.HOPE TO SEE YOU ANOTHER TIME";
 			}
 
 
 			$conn->close();
+			
 		}
+
+
+		function show_events()
+		{
+			$servername = "localhost";
+			$username = "root";
+			$password = "";
+			$dbname = "database_for_coloredcow";
+
+			// Create connection
+			$conn = new mysqli($servername, $username, $password, $dbname);
+			// Check connection
+			if ($conn->connect_error) {
+			    die("Connection failed: " . $conn->connect_error);
+			} 
+
+			$sql = "SELECT event_name, event_theme, event_date, event_venue FROM new_event ORDER BY `event_date` asc limit 1";
+			$result = $conn->query($sql);
+
+			if ($result->num_rows > 0) {
+			    // output data of each row
+			    while($row = $result->fetch_assoc()) {
+			        echo "<h6>EVENT NAME:</h6>" . $row["event_name"]. "<br><br><h6>EVENT THEME:</h6>" . $row["event_theme"]. "<br><br><h6>EVENT DATE:</h6>" . $row["event_date"]. "<br><br><h6>EVENT VENUE:</h6>" . $row["event_venue"]. "<br>------------------------------------------------------------------------------------<br><br>";
+			    }
+			} else
+			{
+			    echo "0 results";
+			}
+			$conn->close();
+			
 		}
-?>
+
+
+		function rsvp()
+		{
+			$servername = "localhost";
+			$username = "root";
+			$password = "";
+			$dbname = "database_for_coloredcow";
+
+													   
+			// Create connection
+			$conn1 = new mysqli($servername, $username, $password, $dbname);
+			// Check connection
+			if ($conn1->connect_error) 
+				{
+				    die("Connection failed: " . $conn1->connect_error);
+				}
+
+
+			$result1 = "SELECT * FROM new_guests limit 10"; 
+			$result2 = mysqli_query($conn1,$result1);
+			if(mysqli_num_rows($result2) == 0)
+				{ 
+					("no records found"); 
+				} 
+			else 
+				{ 
+					echo 
+
+					"<table border='1'> 
+					<tr> 
+					<th> guest_name </th> 
+					 
+					 
+					<th> status </th>
+					<th> guest_emailid </th> 
+					 
+					</tr>";
+
+			while($row1 = mysqli_fetch_assoc($result2)) 
+				{ 
+					echo "<tr>"; 
+					echo "<td>" . $row1['guest_name'] . "</td>";  
+					echo "<td>" . $row1['status'] . "</td>"; 
+					echo "<td>" . $row1['guest_emailid'] . "</td>"; 
+					echo "</tr>";
+
+				}
+
+					echo "</table>"; 
+					
+				} //end close off the if statement
+		}
+?> 

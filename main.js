@@ -1,37 +1,88 @@
-$(document).ready(function myfunction()
+$(document).ready(function()
 {
-$("#Submit").click(function myfunction1()
-{
-var event_name=document.getElementsByname("event_name").value;
-var event_theme=document.getElementsByname("event_theme").value;
-var event_date=document.getElementsByname("event_date").value;
-var event_venue=document.getElementsByname("event_venue").value;
-
-// Returns successful data submission message when the entered information is stored in database.
-var dataString= '&event_name1=' +event_name + '&event_theme1=' +event_theme + '&event_date' +event_date + '&event_venue' +event_venue;
-
-//alert(dataString);
-
-if (event_name== '' || event_theme== '' || event_date== '' || event_venue== '' ) 
-{
-alert("Please fill all fields");
-}
-else
-{
-// AJAX Code To Submit Form.
-
-$.ajax  ({
-	type: "POST",
-	url: "functions.php",
-	data: dataString,
-	cache: false,
-	success: function(success)
+	$("#Submit_event").on("click",function()
 	{
-		alert(success);
-	}
+	var eventForm=$('#event_form');
+	var dataString = "action=events&"+eventForm.serialize();
+	 console.log(dataString);
+			
+			if (!eventForm[0].checkValidity()) {
+				eventForm[0].reportValidity();
+				return;
+			}
+				
+		$.ajax  ({
+		type: 'POST',	
+		url: 'ajax.php', 
+		data: dataString,
+		cache: false,
+		success: function(result)
+		{
+
+			alert(result);
+			document.getElementById("event_form").reset();
+		}	
+		
 		});
-}
-return false;
+		
+	});
+
+
+
+
+	$("#Submit_guests").on("click",function()
+	{
+	var guestForm=$('#guest_form');
+	var dataString = "action=guest_details&"+guestForm.serialize();
+	console.log(dataString);
+			if (!guestForm[0].checkValidity()) {
+				guestForm[0].reportValidity();
+				return;
+			}
+		
+		$.ajax  ({
+		type: 'POST',	
+		url: 'ajax.php', 
+		data: dataString,
+		cache: false,
+		success: function(result)
+		{
+			alert(result);
+			document.getElementById("guest_form").reset();
+			
+		}	
+		});
+		
+	});
+
+	$("#Submit_rsvp").on("click",function()
+	{
+		var rsvpForm=$('#rsvp_form');
+	var dataString = "action=update_details&"+rsvpForm.serialize();
+	console.log(dataString);
+		if (!rsvpForm[0].checkValidity()) {
+			rsvpForm[0].reportValidity();
+			return;
+		}
+		
+		
+		$.ajax  ({
+		type: 'POST',	
+		url: 'ajax.php', 
+		data: dataString,
+		cache: false,
+		success: function(result)
+		{
+			alert(result);
+			
+			document.getElementById("rsvp_form").reset();
+			
+		}	
+		});
+		
+	});
+ return false;
+
 });
-});
+
 	
