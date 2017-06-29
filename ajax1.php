@@ -17,8 +17,13 @@ if (isset($_POST['action'])) {
 								print json_encode($status);
 								break;
 								
+		case 'requests':        $status=requests();
+								print json_encode($status);
+								break;
 
-
+		case 'show_all_guests':		$status=rsvp();
+									print json_encode($status);
+									break;						
 		
 		default:echo "Invalid";
 			break;
