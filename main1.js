@@ -1,5 +1,7 @@
 $(document).ready(function()
 {
+	fetch_guest();
+	guest_transfer();
 	$("#Submit_event").on("click",function()
 	{
 	var eventForm=$('#event_form');
@@ -47,10 +49,10 @@ $(document).ready(function()
 		cache: false,
 		success: function(result)
 		{
-			fetch_guest();
+			
 			alert(result);
 			document.getElementById("guest_form").reset();
-			
+			fetch_guest();
 		}	
 		});
 		
@@ -110,11 +112,12 @@ $(document).ready(function()
 		
 	});
 
-	$(".approve").on("click",function()
+	$(document).on('click','.approve',function()
 	{
+		console.log("vcdgsvsghvd");
 		var id= $(this).attr("id");	
 		var approve="approve";
-		console.log(id);
+		
 	$.ajax({
 		type: 'POST',
 		url: 'functions1.php',
@@ -123,13 +126,16 @@ $(document).ready(function()
 		success: function(result)
 		{
 			alert(result);
+			fetch_guest();
+			guest_transfer();
 		}
 	});
 	});
 
-	$(".reject").on("click",function()
+	$(document).on('click','.reject',function()
 	{
-		var id= $(this).attr("id");	
+		var id= $(this).attr("id");
+
 		var reject="reject";
 		console.log(id);
 	$.ajax({
@@ -140,21 +146,44 @@ $(document).ready(function()
 		success: function(result)
 		{
 			alert(result);
+			fetch_guest();
+			guest_transfer();
+		
 		}
+		
 	});
 	});
 
 	function fetch_guest()
 	{
-		var action="show_all_guests";
+		console.log("hello");
+		var action="showallguests";
+		// var datastring="action=showallguest";
+		// console.log(action);
 		$.ajax({
-			url: ajax1.php,
-			data: {action:action},
+			type:"POST",
+			url: "ajax1.php",
+			data:{action:action},
 			cache: false,
 			success: function(result){
-				alert(result);
+				// alert("result");
+			$("#guestlist").html(result);
 			}
 		});
+	}
+
+	function guest_transfer()
+	{
+		var action="transferguests";
+		$.ajax({
+			type: "POST",
+			url: "ajax1.php",
+			data:{action:action},
+			cache: false,
+			success: function(result){
+				$("#requestlist").html(result);
+			}
+		})
 	}
 
  return false;

@@ -1,9 +1,9 @@
 <?php
 require_once 'functions1.php';
-
-if (isset($_POST['action'])) {
+// die("heehehehe");
+if (isset($_POST["action"])) {
 	
-	switch ($_POST['action']) {
+	switch ($_POST["action"]) {
 		
 		case 'events':  $status=events();
 						print json_encode($status);
@@ -21,9 +21,13 @@ if (isset($_POST['action'])) {
 								print json_encode($status);
 								break;
 
-		case 'show_all_guests':		$status=rsvp();
-									print json_encode($status);
-									break;						
+		case 'showallguests':	rsvp();
+							// die("heee");
+								break;
+
+		case 'transferguests': submit_requests();
+								// die("ncchjsdch");
+								break;						
 		
 		default:echo "Invalid";
 			break;

@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>ADMIN</title>
+	<title>SOIREE</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Frijole" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Margarine" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Luckiest Guy" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Cabin Sketch" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Paprika" rel="stylesheet">
 
 
 </head>
 <body>
-	<nav class="navbar sticky-top navbar-toggleable-md navbar-inverse bg-inverse">
+	<nav class="navbar sticky-top navbar-toggleable-md navbar-inverse bg-inverse" style="height: 70px;">
 					
 		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
@@ -22,35 +26,35 @@
 		<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 			<ul class="navbar-nav">
 			<li class="nav-item active">
-				<a class="nav-link" href="index1.php">GUESTS<span class="sr-only">(current)</span></a>
+				<a class="nav-link" href="index1.php" style="font-family: 'Luckiest Guy'; font-size: 20px;">GUESTS<span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item active">
-				<a class="nav-link" href="host_control_page1.php">EVENTS<span class="sr-only"></span></a>
+				<a class="nav-link" href="host_control_page1.php" style="font-family: 'Luckiest Guy'; font-size: 20px;">EVENTS<span class="sr-only"></span></a>
 			</li>
 			
 			</ul>
 		    
 		</div>
 	</nav>
-		<div class="jumbotron text-white" style="background-image: url('black-wallpaper-19.jpg');">
-							<center><h1 style="font-family: 'frijole';"> ----THE LATEST EVENT <span class="badge badge-primary">New</span>----</h1>
+		<div class="jumbotron text-white" style="background-image: url('black-wallpaper-19.jpg'); font-family: Paprika;" >
+							<center><h1 style="font-family: 'Cabin Sketch'; font-size: 50px;"> ----THE LATEST EVENT <span class="badge badge-primary">New</span>----</h1>
 							<?php
 							require("functions1.php");
 							show_events();
 							?>
 							</center>
 						</div>
-						</div>
+					
 			<div class="jumbotron text-white" style="background-image: url('black-wallpaper-19.jpg');">
 						<div class="row">
 						<div class="col-lg-6">
 							<center>
 							<div class="container">
 							<div style="width: 100%; border: 2px dashed gray; padding-bottom:45px">
-							<h5 style="font-family: 'Love Ya Like A Sister';padding-top:45px; ">Confirm your RSVP status <span class="badge badge-danger">click on the button below</span>
+							<h5 style="font-family: 'Margarine'; font-size: 23px; padding-top:45px; ">Confirm your RSVP status <span class="badge badge-danger">click on the button below</span>
 							</h5>
 							<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong">
-							  RSVP
+							  GET RSVP LINK
 							</button>
 							</div>
 							</div>
@@ -61,8 +65,8 @@
 							<center>
 							<div class="container">
 							<div style="width: 100%; border: 2px dashed gray; padding-bottom:45px;"	>
-							<h5 style="font-family: 'Love Ya Like A Sister';padding-top:45px; ">Want to join the party? <span class="badge badge-primary">click on the button below</span></h5>
-							<button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">REQUEST
+							<h5 style="font-family: 'Margarine'; font-size: 23px; padding-top:45px; ">Want to join the party? <span class="badge badge-primary">click on the button below</span></h5>
+							<button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">REQUEST AN INVITATION
 							</button>
 							</div>
 							</div>
@@ -173,7 +177,7 @@
 			<hr>
 				<div class="container">
 
-					<center><h1>Events<span class="badge badge-success">clicks</span> <i class="fa fa-camera-retro fa-1x"></i></h1></center>
+					<center><h1 style="font-family: 'Bangers'; font-size: 50px;">Events<span class="badge badge-success">pictures</span> <i class="fa fa-camera-retro fa-1x"></i></h1></center>
 							
 							<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 						  
@@ -185,6 +189,11 @@
 						    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
 						    <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
 						    <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+						    <li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
+						    <li data-target="#carouselExampleIndicators" data-slide-to="8"></li>
+						    <li data-target="#carouselExampleIndicators" data-slide-to="9"></li>
+						    <li data-target="#carouselExampleIndicators" data-slide-to="10"></li>
+						    <li data-target="#carouselExampleIndicators" data-slide-to="11"</li>
 						  </ol>
 						  
 						  <div class="carousel-inner" role="listbox">
@@ -198,16 +207,31 @@
 						      <img class="d-block img-fluid" src="17097340_1801526630064589_4934918446811234698_o.jpg" alt="Third slide" style="width:100%;height: 500px;">
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="17157621_1801444896739429_3568265074552533962_o.jpg" alt="Third slide" style="width:100%;height: 500px;">
+						      <img class="d-block img-fluid" src="17157621_1801444896739429_3568265074552533962_o.jpg" alt="fourth slide" style="width:100%;height: 500px;">
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="17620499_1813898782160707_9209937346699936697_o.jpg" alt="Third slide" style="width:100%;height: 500px;">
+						      <img class="d-block img-fluid" src="17620499_1813898782160707_9209937346699936697_o.jpg" alt="fifth slide" style="width:100%;height: 500px;">
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="17799135_1813900882160497_1059668741200254439_n.jpg" alt="Third slide" style="width:100%;height: 500px;">
+						      <img class="d-block img-fluid" src="17799135_1813900882160497_1059668741200254439_n.jpg" alt="sixth slide" style="width:100%;height: 500px;">
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="17758327_1813898875494031_1698159385545969705_o.jpg" alt="Third slide" style="width:100%;height: 500px;">
+						      <img class="d-block img-fluid" src="17758327_1813898875494031_1698159385545969705_o.jpg" alt="seventh slide" style="width:100%;height: 500px;">
+						    </div>
+						    <div class="carousel-item">
+						      <img class="d-block img-fluid" src="14589869_1746816418868944_2272512172932659866_o.jpg" alt="eighth slide" style="width:100%;height: 500px;">
+						    </div>
+						    <div class="carousel-item">
+						      <img class="d-block img-fluid" src="17097522_1801447680072484_4526787932363663857_o.jpg" alt="ninth slide" style="width:100%;height: 500px;">
+						    </div>
+						    <div class="carousel-item">
+						      <img class="d-block img-fluid" src="17157471_1801446833405902_1768432669942563695_o.jpg" alt="tenth slide" style="width:100%;height: 500px;">
+						    </div>
+						    <div class="carousel-item">
+						      <img class="d-block img-fluid" src="19144087_1845578538992731_2636866978893376182_o.jpg" alt="eleventh slide" style="width:100%;height: 500px;">
+						    </div>
+						    <div class="carousel-item">
+						      <img class="d-block img-fluid" src="19242987_1845581362325782_3100694981422585848_o.jpg" alt="twelveth slide" style="width:100%;height: 500px;">
 						    </div>
 						    
 						  </div>
@@ -231,7 +255,7 @@
 							  <h1 class="display-1">Hello, People!</h1>
 							  <p class="lead">Come and join the party..Lets make the the day better together.</p>
 							  <hr class="my-4">
-							  <p class="text-primary">Send us a REQUEST in case you are not invited. </p>
+							  <h4 class="text-primary">Send us a <b>REQUEST</b> in case you are not invited. </h4>
 							  <p class="lead">
 							    <a class="btn btn-info btn-lg" href="#" role="button">SEE MORE</a>
 							  </p>

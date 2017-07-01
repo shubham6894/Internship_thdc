@@ -3,27 +3,31 @@
 	<head>
 		<title>RSVP</title>
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+			<link href="https://fonts.googleapis.com/css?family=Luckiest Guy" rel="stylesheet">
+			<link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+			<link href="https://fonts.googleapis.com/css?family=Margarine" rel="stylesheet">
+			<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 			
 	</head>
 		
 			<body>
 
 				  
-				<nav class="navbar sticky-top navbar-toggleable-md navbar-inverse bg-inverse">
+				<nav class="navbar sticky-top navbar-toggleable-md navbar-inverse bg-inverse" style="height: 70px;">
 					
 						<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 						</button>
 						
-						<a class="navbar-brand" href="#">'EVENTS'</a>
+						<a class="navbar-brand" href="#" style="font-family: 'Pacifico';">'EVENTS'</a>
 
 							<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 								<ul class="navbar-nav">
 									<li class="nav-item active">
-										<a class="nav-link" href="admin.php">Soiree<span class="sr-only">(current)</span></a>
+										<a class="nav-link" href="admin.php" style="font-family: 'Luckiest Guy'; font-size: 20px;">SOIREE<span class="sr-only">(current)</span></a>
 									</li>
 									<li class="nav-item active">
-										<a class="nav-link" href="index1.php">Guests<span class="sr-only">(current)</span></a>
+										<a class="nav-link" href="index1.php" style="font-family: 'Luckiest Guy'; font-size: 20px;">GUESTS<span class="sr-only">(current)</span></a>
 									</li>
 									
 								</ul>
@@ -38,7 +42,7 @@
 									<center>
 							
 					<div class="jumbotron text-white" style="background-image: url('black-wallpaper-10.jpg'); ">
-					<div class="alert alert-danger col-lg-6" role="alert">
+					<div class="alert alert-danger col-lg-6" role="alert" style="font-family: 'Bangers'; font-size: 30px;">
   											<strong>LATEST EVENT!</strong> WITH DETAILS.
 										</div>
   			<?php
@@ -51,20 +55,38 @@
 			
 			<hr>
 			<div class="container">
-			<center>
+			
 			<div class="jumbotron text-white" style="background-image: url('black-wallpaper-10.jpg');">
 			<div class="row">
 			<div class="col-lg-6">
-			<h5>SEE ALL PREVIOUS EVENTS <span class="badge badge-success">click on the link below</span></h5>
-			<a href="allevents1.php" class="btn btn-outline-success" role="button">Show All Events</a>
+			<center>
+							<div class="container">
+							<div style="width: 105%; border: 2px dashed whitesmoke; padding-bottom:45px;">
+							<h5 style="font-family: 'Margarine'; font-size: 23px; padding-top:45px; ">SEE ALL PREVIOUS EVENTS<span class="badge badge-success">click on the button below</span></h5>
+							<a href="allevents1.php" class="btn btn-outline-success" role="button">Show All Events</a>
+							</div>
+							</div>
+							</center>
+
+
+			
 			</div>
 			<div class="col-lg-6">
-					<h5>CREATE A NEW EVENT <span class="badge badge-success">click on the button below</span></h5>
-					<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">ADD NEW EVENT</button>
+					
+					<center>
+							<div class="container">
+							<div style="width: 105%; border: 2px dashed whitesmoke; padding-bottom:45px;">
+							<h5 style="font-family: 'Margarine'; font-size: 23px; padding-top:45px; ">CREATE A NEW EVENT<span class="badge badge-success">click on the button below</span></h5>
+							<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">ADD NEW EVENT</button>
+							</div>
+							</div>
+							</center>
+
+					
 					</div>
 					</div>
 					</div>
-					</center>
+					
 					</div>
 					
 

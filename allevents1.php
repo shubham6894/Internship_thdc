@@ -3,21 +3,23 @@
 	<head>
 		<title>AllEvents</title>
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+			<link href="https://fonts.googleapis.com/css?family=Luckiest Guy" rel="stylesheet">
+			<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 	</head>
 		
 			<body style="background-color:transparent;"><center>
-						<nav class="navbar sticky-top navbar-toggleable-md navbar-inverse bg-inverse">
+						<nav class="navbar sticky-top navbar-toggleable-md navbar-inverse bg-inverse" style="height: 70px;">
 					
 						<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 						</button>
 						
-						<a class="navbar-brand" href="#">ColoredCow</a>
+						<a class="navbar-brand" href="#" style="font-family: 'Pacifico';">ColoredCow</a>
 
 							<div class="collapse navbar-collapse" id="navbarSupportedContent">
 								<ul class="navbar-nav mr-auto">
 									<li class="nav-item active">
-										<a class="nav-link" href="admin.php"><H5>BACK</H5> <span class="sr-only">(current)</span></a>
+										<a class="nav-link" href="admin.php"><H5 style="font-family: 'Luckiest Guy'; font-size: 20px;">BACK</H5> <span class="sr-only">(current)</span></a>
 									</li>
 									<!-- <li class="nav-item">
 										<a class="nav-link" href="#">Link</a>
@@ -31,7 +33,7 @@
 				</nav>
 
 						<div class="container">
-						<h3><span class="badge badge-default">ALL EVENTS</span></h3>
+						<h3><span class="badge badge-info">ALL EVENTS</span></h3>
 						<hr>
 
 									<!-- <a href='index.php'> <h6>HOME</h6></a> -->
