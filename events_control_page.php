@@ -34,7 +34,7 @@
 							<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 								<ul class="navbar-nav">
 									<li class="nav-item active">
-										<a class="nav-link" href="home_display_page.php" style="font-family: 'Luckiest Guy'; font-size: 20px;">
+										<a class="nav-link" href="index.php" style="font-family: 'Luckiest Guy'; font-size: 20px;">
 										<i class="fa fa-home" aria-hidden="true"></i>SOIREE<span class="sr-only">(current)</span></a>
 									</li>
 									<li class="nav-item active">
