@@ -186,7 +186,7 @@
 				$row= $result->fetch_assoc();
 				$uniquecode=md5(uniqid(rand()));
 				$encryptuniquecode=base64_encode($uniquecode);
-				echo "<a target='_blank' href='http://localhost/Internship%20RSVP/token.php/?passkey=$encryptuniquecode'>CLICK TO RSVP</a>";
+				echo "<a target='_blank' href='http://localhost/Internship%20RSVP/rsvp_confirmation_page.php/?passkey=$encryptuniquecode'>CLICK TO RSVP</a>";
 
 				$sql="UPDATE new_guests SET random_token='$uniquecode' WHERE guest_emailid='$your_email'";
 				mysqli_query($conn, $sql);
@@ -216,7 +216,7 @@
 							SET status='CONFIRM'
 							WHERE guestid='$id_guest' ";				
 			if(mysqli_query($conn,$updatestatus)===TRUE){
-				echo "<h4>YOUR RESPONSE IS SUCCESSFULLY UPDATED <br><a role='button' class='btn btn-outline-success' href='http://localhost/Internship%20RSVP/admin.php'>HOME</a></h4>";
+				echo "<h4>YOUR RESPONSE IS SUCCESSFULLY UPDATED <br><a role='button' class='btn btn-outline-success' href='http://localhost/Internship%20RSVP/home_display_page.php'>HOME</a></h4>";
 			}else{
 				echo "error";
 		}	

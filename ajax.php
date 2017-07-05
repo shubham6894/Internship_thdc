@@ -1,5 +1,5 @@
 <?php
-require_once 'functions1.php';
+require_once 'functions.php';
 // die("heehehehe");
 if (isset($_POST["action"])) {
 	

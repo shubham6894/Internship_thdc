@@ -35,26 +35,26 @@
 		<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 			<ul class="navbar-nav">
 			<li class="nav-item active">
-				<a class="nav-link" href="index1.php" style="font-family: 'Luckiest Guy'; font-size: 20px;}">GUESTS<span class="sr-only">(current)</span></a>
+				<a class="nav-link" href="guests_control_page.php" style="font-family: 'Luckiest Guy'; font-size: 20px;}">GUESTS<span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item active">
-				<a class="nav-link" href="host_control_page1.php" style="font-family: 'Luckiest Guy'; font-size: 20px;">EVENTS<span class="sr-only"></span></a>
+				<a class="nav-link" href="events_control_page.php" style="font-family: 'Luckiest Guy'; font-size: 20px;">EVENTS<span class="sr-only"></span></a>
 			</li>
 			
 			</ul>
 		    
 		</div>
 	</nav>
-		<div class="jumbotron text-white" style="background-image: url('black-wallpaper-19.jpg'); font-family: Paprika;" >
+		<div class="jumbotron text-white" style="background-image: url('RSVP_IMAGES/homebackground.jpg'); font-family: Paprika;" >
 							<center><h1 style="font-family: 'Cabin Sketch'; font-size: 60px; color: peachpuff;"> ----THE LATEST EVENT <span class="badge badge-primary">Soiree</span>----</h1>
 							<?php
-							require("functions1.php");
+							require("functions.php");
 							show_events();
 							?>
 							</center>
 						</div>
 					
-			<div class="jumbotron text-white" style="background-image: url('black-wallpaper-19.jpg');">
+			<div class="jumbotron text-white" style="background-image: url('RSVP_IMAGES/homebackground.jpg');">
 						<div class="row">
 						<div class="col-lg-6">
 							<center>
@@ -204,73 +204,73 @@
 						  
 						  <div class="carousel-inner" role="listbox">
 						    <div class="carousel-item active">
-						      <img class="d-block img-fluid" src="14753441_1746791318871454_97768673508346665_o.jpg" alt="First slide" style="width:100%;height: 600px;">
+						      <img class="d-block img-fluid" src="RSVP_IMAGES/soiree1.jpg" alt="First slide" style="width:100%;height: 600px;">
 						      <div class="carousel-caption d-none d-md-block">
 							    <h3 style="font-family: Frijole; color: lavender;">#SOIREE 1.</h3>  
 							  </div>
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="14884683_1746791322204787_4086761520496955659_o.jpg" alt="Second slide" style="width:100%;height: 600px;">
+						      <img class="d-block img-fluid" src="RSVP_IMAGES/soiree2.jpg" alt="Second slide" style="width:100%;height: 600px;">
 						      <div class="carousel-caption d-none d-md-block">
 							    <h3 style="font-family: Frijole; color: lavender;">#SOIREE 2.</h3>  
 							  </div>
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="17097340_1801526630064589_4934918446811234698_o.jpg" alt="Third slide" style="width:100%;height: 600px;">
+						      <img class="d-block img-fluid" src="RSVP_IMAGES/soiree3.jpg" alt="Third slide" style="width:100%;height: 600px;">
 						      <div class="carousel-caption d-none d-md-block">
 							    <h3 style="font-family: Frijole; color: lavender;">#SOIREE 3.</h3>  
 							  </div>
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="17157621_1801444896739429_3568265074552533962_o.jpg" alt="fourth slide" style="width:100%;height: 600px;">
+						      <img class="d-block img-fluid" src="RSVP_IMAGES/soiree4.jpg" alt="fourth slide" style="width:100%;height: 600px;">
 						      <div class="carousel-caption d-none d-md-block">
 							    <h3 style="font-family: Frijole; color: lavender;">#SOIREE 4.</h3>  
 							  </div>
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="17620499_1813898782160707_9209937346699936697_o.jpg" alt="fifth slide" style="width:100%;height: 600px;">
+						      <img class="d-block img-fluid" src="RSVP_IMAGES/soiree5.jpg" alt="fifth slide" style="width:100%;height: 600px;">
 						      <div class="carousel-caption d-none d-md-block">
 							    <h3 style="font-family: Frijole; color: lavender;">#SOIREE 5.</h3>  
 							  </div>
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="17799135_1813900882160497_1059668741200254439_n.jpg" alt="sixth slide" style="width:100%;height: 600px;">
+						      <img class="d-block img-fluid" src="RSVP_IMAGES/soiree6.jpg" alt="sixth slide" style="width:100%;height: 600px;">
 						      <div class="carousel-caption d-none d-md-block">
 							    <h3 style="font-family: Frijole; color: lavender;">#SOIREE 6.</h3>  
 							  </div>
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="17758327_1813898875494031_1698159385545969705_o.jpg" alt="seventh slide" style="width:100%;height: 600px;">
+						      <img class="d-block img-fluid" src="RSVP_IMAGES/soiree7.jpg" alt="seventh slide" style="width:100%;height: 600px;">
 						      <div class="carousel-caption d-none d-md-block">
 							    <h3 style="font-family: Frijole; color: lavender;">#SOIREE 7.</h3>  
 							  </div>
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="14589869_1746816418868944_2272512172932659866_o.jpg" alt="eighth slide" style="width:100%;height: 600px;">
+						      <img class="d-block img-fluid" src="RSVP_IMAGES/soiree8.jpg" alt="eighth slide" style="width:100%;height: 600px;">
 						      <div class="carousel-caption d-none d-md-block">
 							    <h3 style="font-family: Frijole; color: lavender;">#SOIREE 8.</h3>  
 							  </div>
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="17097522_1801447680072484_4526787932363663857_o.jpg" alt="ninth slide" style="width:100%;height: 600px;">
+						      <img class="d-block img-fluid" src="RSVP_IMAGES/soiree9.jpg" alt="ninth slide" style="width:100%;height: 600px;">
 						      <div class="carousel-caption d-none d-md-block">
 							    <h3 style="font-family: Frijole; color: lavender;">#SOIREE 9.</h3>  
 							  </div>
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="17157471_1801446833405902_1768432669942563695_o.jpg" alt="tenth slide" style="width:100%;height: 600px;">
+						      <img class="d-block img-fluid" src="RSVP_IMAGES/soiree10.jpg" alt="tenth slide" style="width:100%;height: 600px;">
 						      <div class="carousel-caption d-none d-md-block">
 							    <h3 style="font-family: Frijole; color: lavender;">#SOIREE 10.</h3>  
 							  </div>
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="19144087_1845578538992731_2636866978893376182_o.jpg" alt="eleventh slide" style="width:100%;height: 600px;">
+						      <img class="d-block img-fluid" src="RSVP_IMAGES/soiree11.jpg" alt="eleventh slide" style="width:100%;height: 600px;">
 						      <div class="carousel-caption d-none d-md-block">
 							    <h3 style="font-family: Frijole; color: lavender;">#SOIREE 11.</h3>  
 							  </div>
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="19242987_1845581362325782_3100694981422585848_o.jpg" alt="twelveth slide" style="width:100%;height: 600px;">
+						      <img class="d-block img-fluid" src="RSVP_IMAGES/soiree12.jpg" alt="twelveth slide" style="width:100%;height: 600px;">
 						      <div class="carousel-caption d-none d-md-block">
 							    <h3 style="font-family: Frijole; color: lavender;">#SOIREE 12.</h3>  
 							  </div>
@@ -318,6 +318,6 @@
 
 
 </body>
-			<script type="text/javascript" src="main1.js"></script>
+			<script type="text/javascript" src="main.js"></script>
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </html>

@@ -33,11 +33,11 @@
 							<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 								<ul class="navbar-nav">
 									<li class="nav-item active">
-										<a class="nav-link" href="admin.php" style="font-family: 'Luckiest Guy'; font-size: 20px;">
+										<a class="nav-link" href="home_display_page.php" style="font-family: 'Luckiest Guy'; font-size: 20px;">
 										<i class="fa fa-home" aria-hidden="true"></i>SOIREE<span class="sr-only">(current)</span></a>
 									</li>
 									<li class="nav-item active">
-										<a class="nav-link" href="host_control_page1.php" style="font-family: 'Luckiest Guy'; font-size: 20px;">EVENTS<span class="sr-only">(current)</span></a>
+										<a class="nav-link" href="events_control_page.php" style="font-family: 'Luckiest Guy'; font-size: 20px;">EVENTS<span class="sr-only">(current)</span></a>
 									</li>
 									
 								</ul>
@@ -52,11 +52,11 @@
 							
 							<hr>
 							<?php
-								require("functions1.php");
+								require("functions.php");
 							?>
 							
 							
-							<div class="jumbotron text-white" style="background-image: url('69714266-event-wallpapers.jpg');opacity:0.6;">
+							<div class="jumbotron text-white" style="background-image: url('RSVP_IMAGES/guestbackground.jpg');opacity:0.6;">
 							<center>
 							
 								<!-- <div class="col-lg-6">
@@ -64,7 +64,7 @@
 							<div class="container">
 							<div style="width: 105%; border: 2px dashed whitesmoke; padding-bottom:45px;">
 							<h5 style="font-family: 'Margarine'; font-size: 23px; padding-top:45px; ">SEE ALL PREVIOUS EVENTS<span class="badge badge-danger">click on the button below</span></h5>
-							<a href="allevents1.php" class="btn btn-outline-danger" role="button">
+							<a href="allevents_display_page.php" class="btn btn-outline-danger" role="button">
 							<i class="fa fa-spinner fa-spin fa-fw"></i>SHOW ALL EVENTS</a>
 							</div>
 							</div>
@@ -289,6 +289,6 @@
 						</script>
 						
 			</body>
-						<script type="text/javascript" src="main1.js"></script>
+						<script type="text/javascript" src="main.js"></script>
 						<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </html>

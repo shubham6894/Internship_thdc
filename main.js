@@ -16,7 +16,7 @@ $(document).ready(function()
 				
 		$.ajax  ({
 		type: 'POST',	
-		url: 'ajax1.php', 
+		url: 'ajax.php', 
 		data: dataString,
 		cache: false,
 		success: function(result)
@@ -45,7 +45,7 @@ $(document).ready(function()
 		
 		$.ajax  ({
 		type: 'POST',	
-		url: 'ajax1.php', 
+		url: 'ajax.php', 
 		data: dataString,
 		cache: false,
 		success: function(result)
@@ -72,7 +72,7 @@ $(document).ready(function()
 		
 		$.ajax  ({
 		type: 'POST',	
-		url: 'ajax1.php', 
+		url: 'ajax.php', 
 		data: dataString,
 		cache: false,
 		success: function(result)
@@ -98,7 +98,7 @@ $(document).ready(function()
 		}
 		$.ajax  ({
 		type: 'POST',	
-		url: 'ajax1.php', 
+		url: 'ajax.php', 
 		data: dataString,
 		cache: false,
 		success: function(result)
@@ -120,7 +120,7 @@ $(document).ready(function()
 		
 	$.ajax({
 		type: 'POST',
-		url: 'functions1.php',
+		url: 'functions.php',
 		data:{request_id:id,acton:approve},
 		cache: false,
 		success: function(result)
@@ -141,7 +141,7 @@ $(document).ready(function()
 		console.log(id);
 	$.ajax({
 		type: 'POST',
-		url: 'ajax1.php',
+		url: 'ajax.php',
 		data:{request_id:id,action:reject},
 		cache: false,
 		success: function(result)
@@ -164,7 +164,7 @@ $(document).ready(function()
 		// console.log(action);
 		$.ajax({
 			type:"POST",
-			url: "ajax1.php",
+			url: "ajax.php",
 			data:{action:action},
 			cache: false,
 			success: function(result){
@@ -179,7 +179,7 @@ $(document).ready(function()
 		var action="transferguests";
 		$.ajax({
 			type: "POST",
-			url: "ajax1.php",
+			url: "ajax.php",
 			data:{action:action},
 			cache: false,
 			success: function(result){
@@ -194,7 +194,7 @@ $(document).ready(function()
 		var action="allevents";
 		$.ajax({
 			type: "POST",
-			url: "ajax1.php",
+			url: "ajax.php",
 			data: {action:action},
 			cache: false,
 			success: function(result)
@@ -211,7 +211,7 @@ $(document).on('click','.edit',function()
 		console.log(id);
 	$.ajax({
 		type: 'POST',
-		url: 'ajax1.php',
+		url: 'ajax.php',
 		data:{event_id:id,action:edit_event},
 		cache: false,
 		success: function(result)
@@ -239,7 +239,7 @@ $(document).on('click','.edit',function()
 				
 		$.ajax  ({
 		type: 'POST',	
-		url: 'ajax1.php', 
+		url: 'ajax.php', 
 		data: dataString,
 		cache: false,
 		success: function(result)
@@ -260,7 +260,7 @@ $(document).on('click','.edit',function()
 		var action="delete_event";
 	$.ajax({
 		type: 'POST',
-		url: 'ajax1.php',
+		url: 'ajax.php',
 		data: {action:action,update_event_id},
 		cache: false,
 		success: function(result)

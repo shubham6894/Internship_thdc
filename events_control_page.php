@@ -34,11 +34,11 @@
 							<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 								<ul class="navbar-nav">
 									<li class="nav-item active">
-										<a class="nav-link" href="admin.php" style="font-family: 'Luckiest Guy'; font-size: 20px;">
+										<a class="nav-link" href="home_display_page.php" style="font-family: 'Luckiest Guy'; font-size: 20px;">
 										<i class="fa fa-home" aria-hidden="true"></i>SOIREE<span class="sr-only">(current)</span></a>
 									</li>
 									<li class="nav-item active">
-										<a class="nav-link" href="index1.php" style="font-family: 'Luckiest Guy'; font-size: 20px;">GUESTS<span class="sr-only">(current)</span></a>
+										<a class="nav-link" href="guests_control_page.php" style="font-family: 'Luckiest Guy'; font-size: 20px;">GUESTS<span class="sr-only">(current)</span></a>
 									</li>
 									
 								</ul>
@@ -52,13 +52,13 @@
 							<div class="container">
 									<center>
 							
-					<div class="jumbotron text-white" style="background-image: url('black-wallpaper-10.jpg'); ">
+					<div class="jumbotron text-white" style="background-image: url('RSVP_IMAGES/eventsbackground.jpg'); ">
 					<div class="alert alert-danger col-lg-6" role="alert" style="font-family: 'Bangers'; font-size: 30px;">
   											<strong>LATEST EVENT!</strong> WITH DETAILS.
 										</div>
   			<div style="font-family: Paprika;">
   			<?php
-			require("functions1.php");
+			require("functions.php");
 			show_events();
 			?>
 			</div>
@@ -69,14 +69,14 @@
 			<hr>
 			<div class="container">
 			
-			<div class="jumbotron text-white" style="background-image: url('black-wallpaper-10.jpg');">
+			<div class="jumbotron text-white" style="background-image: url('RSVP_IMAGES/eventsbackground.jpg');">
 			<div class="row">
 			<div class="col-lg-6">
 			<center>
 							<div class="container">
 							<div style="width: 105%; border: 2px dashed whitesmoke; padding-bottom:45px;">
 							<h5 style="font-family: 'Margarine'; font-size: 23px; padding-top:45px; ">SEE ALL PREVIOUS EVENTS<span class="badge badge-success">click on the button below</span></h5>
-							<a href="allevents1.php" class="btn btn-outline-success" role="button">Show All Events</a>
+							<a href="allevents_display_page.php" class="btn btn-outline-success" role="button">Show All Events</a>
 							</div>
 							</div>
 							</center>
@@ -172,6 +172,6 @@
 						</script>
 						
 			</body>
-						<script type="text/javascript" src="main1.js"></script>
+						<script type="text/javascript" src="main.js"></script>
 						<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </html>

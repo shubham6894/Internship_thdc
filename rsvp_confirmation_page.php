@@ -27,7 +27,7 @@
 		<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 								<ul class="navbar-nav ">
 									<li class="nav-item active">
-										<a class="nav-link" href="admin.php"><H5 style="font-family: 'Luckiest Guy'; font-size: 20px;">
+										<a class="nav-link" href="home_display_page.php"><H5 style="font-family: 'Luckiest Guy'; font-size: 20px;">
 										<i class="fa fa-home" aria-hidden="true"></i>
 										HOME</H5> <span class="sr-only">(current)</span></a>
 									</li>
@@ -98,7 +98,7 @@
 				{
 				$output .='<h4>warning! page not found. please check the address again</h4>
 							<div>
-							   	<a class="btn btn-success" href="http://localhost/Internship%20RSVP/admin.php">HOME</a>
+							   	<a class="btn btn-success" href="http://localhost/Internship%20RSVP/home_display_page.php">HOME</a>
 							</div>
 							</div>';
 			}
@@ -115,7 +115,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous">
 	</script>
 </body>
-	<script type="text/javascript" src="http://localhost/Internship%20RSVP/main1.js"></script>
+	<script type="text/javascript" src="http://localhost/Internship%20RSVP/main.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </html>
 <script type="text/javascript">
@@ -127,7 +127,7 @@
 
 			$.ajax({
 				type: "POST",
-				url: "http://localhost/Internship%20RSVP/ajax1.php",
+				url: "http://localhost/Internship%20RSVP/ajax.php",
 				data: dataString,
 				success: function(result){
 					$("#msgconfirm").html(result);
