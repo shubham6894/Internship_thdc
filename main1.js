@@ -2,6 +2,7 @@ $(document).ready(function()
 {
 	fetch_guest();
 	guest_transfer();
+	show_all_events();
 	$("#Submit_event").on("click",function()
 	{
 	var eventForm=$('#event_form');
@@ -76,9 +77,8 @@ $(document).ready(function()
 		cache: false,
 		success: function(result)
 		{
-			alert(result);
-			
 			document.getElementById("rsvp_form").reset();
+			document.getElementById("msg").innerHTML=result;
 			
 		}	
 		});
@@ -134,17 +134,19 @@ $(document).ready(function()
 
 	$(document).on('click','.reject',function()
 	{
+	
 		var id= $(this).attr("id");
 
 		var reject="reject";
 		console.log(id);
 	$.ajax({
 		type: 'POST',
-		url: 'functions1.php',
-		data:{request_id:id,actin:reject},
+		url: 'ajax1.php',
+		data:{request_id:id,action:reject},
 		cache: false,
 		success: function(result)
 		{
+			
 			alert(result);
 			fetch_guest();
 			guest_transfer();
@@ -186,6 +188,89 @@ $(document).ready(function()
 		})
 	}
 
+	function show_all_events()
+	{
+		console.log("hjdbvsvjsjdvjs");
+		var action="allevents";
+		$.ajax({
+			type: "POST",
+			url: "ajax1.php",
+			data: {action:action},
+			cache: false,
+			success: function(result)
+			{
+				$("#all_events").html(result);
+			}
+		})
+	}
+
+$(document).on('click','.edit',function()
+	{
+		var id= $(this).attr("id");
+		var edit_event="edit_event";
+		console.log(id);
+	$.ajax({
+		type: 'POST',
+		url: 'ajax1.php',
+		data:{event_id:id,action:edit_event},
+		cache: false,
+		success: function(result)
+		{
+			var data=result.split(",");
+			$('#update_event_name').val(data[0]);
+			$('#update_event_date').val(data[1]);
+			$('#update_event_venue').val(data[2]);
+			$('#update_event_id').val(data[3]);	
+		}
+		
+	});
+	});
+
+	$("#update_event").on("click",function()
+	{
+	var eventForm=$('#edit_event');
+	var dataString = "action=update_event&"+eventForm.serialize();
+	 console.log(dataString);
+			
+			if (!eventForm[0].checkValidity()) {
+				eventForm[0].reportValidity();
+				return;
+			}
+				
+		$.ajax  ({
+		type: 'POST',	
+		url: 'ajax1.php', 
+		data: dataString,
+		cache: false,
+		success: function(result)
+		{
+
+			alert(result);
+			document.getElementById("edit_event").reset();
+			show_all_events();
+		}	
+		
+		});
+		
+	});
+
+	$(document).on('click','.delete',function()
+	{	
+		var update_event_id= $(this).attr("id");
+		var action="delete_event";
+	$.ajax({
+		type: 'POST',
+		url: 'ajax1.php',
+		data: {action:action,update_event_id},
+		cache: false,
+		success: function(result)
+		{
+			console.log(result);
+			show_all_events();	
+		}
+		
+	});
+	});
  return false;
 
 });

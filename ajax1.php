@@ -13,8 +13,7 @@ if (isset($_POST["action"])) {
 								print json_encode($status);
 								break;
 		
-		case 'update_details':  $status=update_details();
-								print json_encode($status);
+		case 'update_details':  update_details();
 								break;
 								
 		case 'requests':        $status=requests();
@@ -27,10 +26,30 @@ if (isset($_POST["action"])) {
 
 		case 'transferguests': submit_requests();
 								// die("ncchjsdch");
-								break;						
+								break;
+
+		case 'rsvpconfirm': 	rsvpconfirm();
+								break;
+
+		case 'allevents':		showallevents();
+								break;
 		
-		default:echo "Invalid";
-			break;
+
+		case 'reject':			reject_guest();
+								break;
+		
+		case 'edit_event': 		extract_event_data();
+								break;
+
+		case 'update_event':    update_event_data();
+								break;
+
+		case 'delete_event':    delete_event();
+								break;													
+		
+		
+		default:				echo "Invalid";
+								break;
 	}
 }
 ?>

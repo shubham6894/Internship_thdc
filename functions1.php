@@ -1,5 +1,5 @@
 <?php
-		
+
 
 		 function events()
 		{
@@ -27,6 +27,7 @@
 
 			if ($conn->query($sql) === TRUE) 
 			{
+			    
 			    return ("Information has been successfully saved.");
 			} 
 
@@ -36,6 +37,7 @@
 			    return "Error: " . $sql . "<br>" . $conn->error ;
 			
 			}
+
 			
 
 			$conn->close();
@@ -139,7 +141,7 @@
 
 			if ($conn->query($sql) === TRUE) 
 			{
-			    return "Information has been successfully saved.";
+			    return "Request has been successfully saved.";
 			} else 
 
 			{
@@ -159,8 +161,7 @@
 			$password = "";
 			$dbname = "database_for_coloredcow";
 
-			$your_email= @$_POST['your_email'];
-			
+			$your_email= @$_POST['user_email'];
 			
 			// Create connection
 			$conn = new mysqli($servername, $username, $password, $dbname);
@@ -169,36 +170,57 @@
 			{
 			    die("Connection failed: " . $conn->connect_error);
 			}
-
-			$k="SELECT guest_emailid FROM new_guests WHERE guest_emailid='$your_email'";
+			$k="SELECT * FROM new_guests WHERE guest_emailid='$your_email'";
 			$result=mysqli_query($conn,$k);
 			$p=mysqli_num_rows($result);
+			
+			$l="SELECT * FROM new_guests WHERE status='CONFIRM' AND guest_emailid='$your_email'";
+			$result1=mysqli_query($conn,$l);
+			$m=mysqli_num_rows($result1);
+				if ($m>0) {
+					die("YOU ARE ALREADY CONFIRMED IN OUR GUEST LIST. THANK YOU!!");
+				}
 
 			if ($p>0) 
 			{
-				$sql = "UPDATE new_guests
-						SET status='CONFIRM'
-						WHERE guest_emailid='$your_email'";
+				$row= $result->fetch_assoc();
+				$uniquecode=md5(uniqid(rand()));
+				$encryptuniquecode=base64_encode($uniquecode);
+				echo "<a target='_blank' href='http://localhost/Internship%20RSVP/token.php/?passkey=$encryptuniquecode'>CLICK TO RSVP</a>";
 
-				if ($conn->query($sql) === TRUE) 
-				{
-				    return "THANK YOU FOR YOUR PRECIOUS TIME....WE WILL BE WAITING FOR YOU...";
-				} 
-
-				else 
-				{
-				    return "Error:"  . $sql . "<br>" . $conn->error;
-				}
-			
+				$sql="UPDATE new_guests SET random_token='$uniquecode' WHERE guest_emailid='$your_email'";
+				mysqli_query($conn, $sql);
 			}
-			
-			else
-			{
-				return "SORRY BUT YOU ARE NOT IN OUR GUEST LIST.HOPE TO SEE YOU ANOTHER TIME";
+			else{
+				echo "SORRY BUT YOU ARE NOT IN OUR GUEST LIST.HOPE TO SEE YOU ANOTHER TIME";
 			}
 
 
 			$conn->close();
+			
+		}
+
+		function rsvpconfirm()
+		{
+			$servername="localhost";
+			$username="root";
+			$password="";
+			$dbname="database_for_coloredcow";
+			$conn=new mysqli($servername, $username,$password,$dbname);
+			if ($conn->connect_error) 
+				{
+				    die("Connection failed: " . $conn->connect_error);
+				}	
+			$id_guest=$_POST['guestid'];;	
+			$updatestatus=" UPDATE new_guests
+							SET status='CONFIRM'
+							WHERE guestid='$id_guest' ";				
+			if(mysqli_query($conn,$updatestatus)===TRUE){
+				echo "<h4>YOUR RESPONSE IS SUCCESSFULLY UPDATED <br><a role='button' class='btn btn-outline-success' href='http://localhost/Internship%20RSVP/admin.php'>HOME</a></h4>";
+			}else{
+				echo "error";
+		}	
+	
 			
 		}
 
@@ -224,15 +246,16 @@
 			    // output data of each row
 			    while($row = $result->fetch_assoc()) {
 			       
-			        echo "<br><h4><span style='font-family: Bangers;'>EVENT NAME:</span><span style='font-size:30px;'>" . $row["event_name"]. "</span></h4> 
-			        <br><h4><span style='font-family: Bangers;'>EVENT THEME:</span><span style='font-size:30px;'>" . $row["event_theme"]. "</h4> 
-			        <br><h4><span style='font-family: Bangers;'>EVENT DATE:</span><span style='font-size:30px;'>" . $row["event_date"]. "</h4> 
-			        <br><h4><span style='font-family: Bangers;'>EVENT VENUE:</span><span style='font-size:30px;'>" . $row["event_venue"]. "</h4><hr class='my-1'><br>";
+			        echo "<br><span style='font-size:60px;'>" . $row["event_name"]. "</span><br> 
+			         
+			        <br><span style='font-size:30px;'><i class='fa fa-calendar' aria-hidden='true'></i>&nbsp;" . $row["event_date"]. "</span><br> 
+			        <br><span style='font-size:30px;'><i class='fa fa-map-marker fa-lg' aria-hidden='true'></i>&nbsp;" . $row["event_venue"]. "</span><br>	<hr class='my-1'><br>";
 			        
 			    }
-			} else
+			} 
+			else
 			{
-			    echo "0 results";
+			    echo "NO EVENTS TO BE DISPLAYED....";
 			}
 			$conn->close();
 			
@@ -287,7 +310,15 @@
 								$output .='<td width="20%">'.$row["guest_emailid"].'</td>';
 								$output .='<td width="20%">'.$row["phone_number"].'</td>' ;
 								$output .='<td width="20%">'.$row["guest_gender"].'</td>' ;
-								$output .='<td width="20%">'.$row["status"].'</td>' ;
+								
+								if ($row['status']=='CONFIRM') {
+									$output .='<td width="20%" style="color : green">'.$row["status"].'</td>' ;
+								}
+								else{
+									$output .='<td width="20%" style="color:red;">'.$row["status"].'</td>' ;	
+								}
+
+								
 								$output .='</tr>';
 								$x=$x+1;		
 							}
@@ -364,10 +395,17 @@
 											<td width="18%">'.$row2["request_emailid"].'</td>
 											<td width="13%">'.$row2["phonenumber"].'</td>
 											<td width="13%">'.$row2["request_gender"].'</td>
-											<td width="13%">'.$row2["status"].'</td>
-											<td width="30%">
-											<button type="button" class="approve btn btn-info" id="'.$row2["request_id"].'">APPROVE</button> &nbsp; 
-											<button type="button" class="reject btn btn-danger" id="'.$row2["request_id"].'">REJECT</button>
+											';
+											if ($row2['status']=='REQUESTED') {
+												$output .='<td width="13%" style="color : blue">'.$row2["status"].'</td>' ;
+											}
+											else{
+												$output .='<td width="13%" style="color:red;">'.$row2["status"].'</td>' ;	
+											}
+											
+											$output .='<td width="30%">
+											<button type="button" class="approve btn btn-info" id="'.$row2["request_id"].'">Approve</button> &nbsp; 
+											<button type="button" class="reject btn btn-danger" id="'.$row2["request_id"].'">Reject</button>
 											</td>
 										</tr>
 								';
@@ -388,6 +426,38 @@
 				}						
 			$conn1->close();
 			}
+
+		function showallevents()
+		{
+			$servername = "localhost";
+			$username = "root";
+			$password = "";
+			$dbname = "database_for_coloredcow";
+
+			// Create connection
+			$conn = new mysqli($servername, $username, $password, $dbname);
+			// Check connection
+			if ($conn->connect_error) {
+			    die("Connection failed: " . $conn->connect_error);
+			} 
+
+			$sql = "SELECT * FROM new_event ORDER BY 'event_date'";
+			$result = $conn->query($sql);
+
+			if ($result->num_rows > 0) {
+			    // output data of each row
+			    while($row = $result->fetch_assoc()) {
+			        echo "<h6>EVENT NAME:</h6> ". $row['event_name']." <br><br><h6>EVENT DATE:</h6> ". $row['event_date']." <br><br><h6>EVENT VENUE:</h6> ". $row['event_venue']." <br><br>
+			        <button type='button' class='edit btn btn-info' id='".$row["event_id"]."' data-toggle='modal' data-target='#editModal' data-whatever='@mdo'> Edit </button> &nbsp; 
+					<button type='button' class='delete btn btn-danger' id='".$row["event_id"]."'> Delete </button> <hr>";
+
+			    }
+			} else
+			{
+			    echo "0 results";
+			}
+			$conn->close();
+		}
 
 	
 
@@ -422,7 +492,7 @@
 				// die($result7);
 				
 				if(mysqli_query($conn1, $result7)===TRUE){
-					echo $name."request accepted";
+					echo $name."  REQUEST ACCEPTED";
 					$result8= "DELETE FROM new_guests_requests WHERE request_id='$request_id'";
 					mysqli_query($conn1, $result8);
 
@@ -437,7 +507,7 @@
 			}
 
 
-	if(isset($_POST["actin"])=="reject")
+		function reject_guest()
 			{
 				$servername = "localhost";
 				$username = "root";
@@ -459,21 +529,128 @@
 					if (mysqli_num_rows($confirm)>0) {
 						die("ALREADY REJECTED");
 					}else{
-					$result9= "UPDATE new_guests_requests 
-								SET status='REJECTED' 
-								WHERE request_id='$request_id'";
-					
-					if(mysqli_query($conn1, $result9)===TRUE){
-						echo "rejected";
-				}	
-				else{
-					echo "Error: " .$result9."<br>". $conn1->error;
-				}}
+						$result9= "UPDATE new_guests_requests 
+									SET status='REJECTED' 
+									WHERE request_id='$request_id'";
+						
+						if(mysqli_query($conn1, $result9)===TRUE){
+							echo "REJECTED";
+						}	
+						else{
+							echo "Error: " .$result9."<br>". $conn1->error;
+						}
+					}
 					
 				
 
 				$conn1->close();
 
 			}
+
+function extract_event_data(){
+				$servername = "localhost";
+			$username = "root";
+			$password = "";
+			$dbname = "database_for_coloredcow";
+
+			// Create connection
+			$conn = new mysqli($servername, $username, $password, $dbname);
+			// Check connection
+			if ($conn->connect_error) {
+			    die("Connection failed: " . $conn->connect_error);
+			} 
+			$event_id=$_POST["event_id"];
+			$sql = "SELECT * FROM new_event WHERE event_id='$event_id' ";
+			$result = $conn->query($sql);
+
+			if ($result->num_rows > 0) {
+			    $row = $result->fetch_assoc();
+			    echo $row["event_name"].",".$row["event_date"].",".$row["event_venue"].",".$row["event_id"];
+			} else
+			{
+			    echo "0 results";
+			}
+			$conn->close();
+}
+
+		function update_event_data()
+		{
+			$servername = "localhost";
+			$username = "root";
+			$password = "";
+			$dbname = "database_for_coloredcow";
+
+			   $event_name=  @$_POST['update_event_name'];
+			   $event_date=  @$_POST['update_event_date'];
+			   $event_venue= @$_POST['update_event_venue'];
+			   $event_id=    @$_POST["update_event_id"];
+
+			// Create connection
+			$conn = new mysqli($servername, $username, $password, $dbname);
+			// Check connection
+			if ($conn->connect_error) 
+			{
+			    die("Connection failed: " . $conn->connect_error);
+			}
+
+			$sql = "UPDATE new_event
+			SET event_name='$event_name',event_date= '$event_date',event_venue= '$event_venue'
+			WHERE event_id='$event_id' ";
+			if ($conn->query($sql) === TRUE) 
+			{
+			    
+			    echo "Information has been successfully updated";
+			} 
+
+			else 
+
+			{
+			    return "Error: " . $sql . "<br>" . $conn->error ;
+			
+			}
+
+			
+
+			$conn->close();
+		}
+		
+
+
+		function delete_event()
+		{
+			$servername = "localhost";
+			$username = "root";
+			$password = "";
+			$dbname = "database_for_coloredcow";
+
+			$event_id=    @$_POST["update_event_id"];
+			$conn = new mysqli($servername, $username, $password, $dbname);
+			// Check connection
+			if ($conn->connect_error) 
+			{
+			    die("Connection failed: " . $conn->connect_error);
+			}
+
+			$sql = "DELETE FROM new_event
+					WHERE event_id='$event_id' ";
+
+			if ($conn->query($sql) === TRUE) 
+			{
+			    
+			    echo "Information has been successfully deleted";
+			} 
+
+			else 
+
+			{
+			    return "Error: " . $sql . "<br>" . $conn->error ;
+			
+			}
+
+			
+
+			$conn->close();
+
+		}
 
 ?> 

@@ -12,10 +12,19 @@
 	<link href="https://fonts.googleapis.com/css?family=Cabin Sketch" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Paprika" rel="stylesheet">
 
-
+	<style type="text/css">
+        .btn:hover{
+            cursor: pointer;
+        }
+        a:hover{
+            cursor: pointer;
+            background-color:grey ;
+        }
+    </style>
 </head>
 <body>
-	<nav class="navbar sticky-top navbar-toggleable-md navbar-inverse bg-inverse" style="height: 70px;">
+
+	<nav class="navbar sticky-top navbar-toggleable-md navbar-inverse bg-inverse">
 					
 		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
@@ -26,7 +35,7 @@
 		<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 			<ul class="navbar-nav">
 			<li class="nav-item active">
-				<a class="nav-link" href="index1.php" style="font-family: 'Luckiest Guy'; font-size: 20px;">GUESTS<span class="sr-only">(current)</span></a>
+				<a class="nav-link" href="index1.php" style="font-family: 'Luckiest Guy'; font-size: 20px;}">GUESTS<span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item active">
 				<a class="nav-link" href="host_control_page1.php" style="font-family: 'Luckiest Guy'; font-size: 20px;">EVENTS<span class="sr-only"></span></a>
@@ -37,7 +46,7 @@
 		</div>
 	</nav>
 		<div class="jumbotron text-white" style="background-image: url('black-wallpaper-19.jpg'); font-family: Paprika;" >
-							<center><h1 style="font-family: 'Cabin Sketch'; font-size: 50px;"> ----THE LATEST EVENT <span class="badge badge-primary">New</span>----</h1>
+							<center><h1 style="font-family: 'Cabin Sketch'; font-size: 60px; color: peachpuff;"> ----THE LATEST EVENT <span class="badge badge-primary">Soiree</span>----</h1>
 							<?php
 							require("functions1.php");
 							show_events();
@@ -54,7 +63,7 @@
 							<h5 style="font-family: 'Margarine'; font-size: 23px; padding-top:45px; ">Confirm your RSVP status <span class="badge badge-danger">click on the button below</span>
 							</h5>
 							<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong">
-							  GET RSVP LINK
+							  Get 'RSVP' Link
 							</button>
 							</div>
 							</div>
@@ -66,7 +75,8 @@
 							<div class="container">
 							<div style="width: 100%; border: 2px dashed gray; padding-bottom:45px;"	>
 							<h5 style="font-family: 'Margarine'; font-size: 23px; padding-top:45px; ">Want to join the party? <span class="badge badge-primary">click on the button below</span></h5>
-							<button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">REQUEST AN INVITATION
+							<button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+							'Request' N Get Invitation
 							</button>
 							</div>
 							</div>
@@ -84,26 +94,22 @@
 			    <div class="modal-content">
 			      
 			      <div class="modal-header">
-			        <h3 class="modal-title" id="exampleModalLongTitle">NEW RSVP</h3>
+			        <h3 class="modal-title" id="exampleModalLongTitle" style="font-family: 'Bangers'; font-size: 30px;">NEW RSVP</h3>
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			          <span aria-hidden="true">&times;</span>
 			        </button>
 			      </div>
-			      
 			      <div class="modal-body" style="background-color: whitesmoke;">
-			  		  <div class="form-group">
+			      	<form class="form-group" id="rsvp_form">
 			            <label for="recipient-name" class="form-control-label"><h6>ENTER THE EMAIL ADDRESS:</h6></label>
-			            <div class="col-lg-10">
-			            <input type="text" class="form-control" placeholder="someone@example.com" id="recipient-name">
-			          </div>
-			          </div>
+			            <input type="email" class="form-control" placeholder="someone@example.com" name="user_email" id="user_email" required>
+			            <p id="msg"></p>
+			        </form>
 				  </div>
-			      
 			      <div class="modal-footer">
-			        <a href="#" role="button" class="btn btn-success" >GET LINK</a>
+			        <button type="button" class="btn btn-success" id="Submit_rsvp">GET LINK</button>
 			        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 			       </div>
-			    
 			    </div>
 			  </div>
 			  </div>
@@ -117,7 +123,7 @@
 			    <div class="modal-content">
 			      
 			      <div class="modal-header">
-			        <h3 class="modal-title" id="exampleModalLabel">NEW REQUEST</h3>
+			        <h3 class="modal-title" id="exampleModalLabel" style="font-family: 'Bangers'; font-size: 30px;">NEW REQUEST</h3>
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			          <span aria-hidden="true">&times;</span>
 			        </button>
@@ -177,7 +183,7 @@
 			<hr>
 				<div class="container">
 
-					<center><h1 style="font-family: 'Bangers'; font-size: 50px;">Events<span class="badge badge-success">pictures</span> <i class="fa fa-camera-retro fa-1x"></i></h1></center>
+					<center><h1 style="font-family: 'Bangers'; font-size: 50px;">Events&nbsp;<span class="badge badge-info">pictures</span> <i class="fa fa-camera-retro fa-1x"></i></h1></center>
 							
 							<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 						  
@@ -198,40 +204,76 @@
 						  
 						  <div class="carousel-inner" role="listbox">
 						    <div class="carousel-item active">
-						      <img class="d-block img-fluid" src="14753441_1746791318871454_97768673508346665_o.jpg" alt="First slide" style="width:100%;height: 500px;">
+						      <img class="d-block img-fluid" src="14753441_1746791318871454_97768673508346665_o.jpg" alt="First slide" style="width:100%;height: 600px;">
+						      <div class="carousel-caption d-none d-md-block">
+							    <h3 style="font-family: Frijole; color: lavender;">#SOIREE 1.</h3>  
+							  </div>
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="14884683_1746791322204787_4086761520496955659_o.jpg" alt="Second slide" style="width:100%;height: 500px;">
+						      <img class="d-block img-fluid" src="14884683_1746791322204787_4086761520496955659_o.jpg" alt="Second slide" style="width:100%;height: 600px;">
+						      <div class="carousel-caption d-none d-md-block">
+							    <h3 style="font-family: Frijole; color: lavender;">#SOIREE 2.</h3>  
+							  </div>
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="17097340_1801526630064589_4934918446811234698_o.jpg" alt="Third slide" style="width:100%;height: 500px;">
+						      <img class="d-block img-fluid" src="17097340_1801526630064589_4934918446811234698_o.jpg" alt="Third slide" style="width:100%;height: 600px;">
+						      <div class="carousel-caption d-none d-md-block">
+							    <h3 style="font-family: Frijole; color: lavender;">#SOIREE 3.</h3>  
+							  </div>
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="17157621_1801444896739429_3568265074552533962_o.jpg" alt="fourth slide" style="width:100%;height: 500px;">
+						      <img class="d-block img-fluid" src="17157621_1801444896739429_3568265074552533962_o.jpg" alt="fourth slide" style="width:100%;height: 600px;">
+						      <div class="carousel-caption d-none d-md-block">
+							    <h3 style="font-family: Frijole; color: lavender;">#SOIREE 4.</h3>  
+							  </div>
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="17620499_1813898782160707_9209937346699936697_o.jpg" alt="fifth slide" style="width:100%;height: 500px;">
+						      <img class="d-block img-fluid" src="17620499_1813898782160707_9209937346699936697_o.jpg" alt="fifth slide" style="width:100%;height: 600px;">
+						      <div class="carousel-caption d-none d-md-block">
+							    <h3 style="font-family: Frijole; color: lavender;">#SOIREE 5.</h3>  
+							  </div>
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="17799135_1813900882160497_1059668741200254439_n.jpg" alt="sixth slide" style="width:100%;height: 500px;">
+						      <img class="d-block img-fluid" src="17799135_1813900882160497_1059668741200254439_n.jpg" alt="sixth slide" style="width:100%;height: 600px;">
+						      <div class="carousel-caption d-none d-md-block">
+							    <h3 style="font-family: Frijole; color: lavender;">#SOIREE 6.</h3>  
+							  </div>
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="17758327_1813898875494031_1698159385545969705_o.jpg" alt="seventh slide" style="width:100%;height: 500px;">
+						      <img class="d-block img-fluid" src="17758327_1813898875494031_1698159385545969705_o.jpg" alt="seventh slide" style="width:100%;height: 600px;">
+						      <div class="carousel-caption d-none d-md-block">
+							    <h3 style="font-family: Frijole; color: lavender;">#SOIREE 7.</h3>  
+							  </div>
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="14589869_1746816418868944_2272512172932659866_o.jpg" alt="eighth slide" style="width:100%;height: 500px;">
+						      <img class="d-block img-fluid" src="14589869_1746816418868944_2272512172932659866_o.jpg" alt="eighth slide" style="width:100%;height: 600px;">
+						      <div class="carousel-caption d-none d-md-block">
+							    <h3 style="font-family: Frijole; color: lavender;">#SOIREE 8.</h3>  
+							  </div>
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="17097522_1801447680072484_4526787932363663857_o.jpg" alt="ninth slide" style="width:100%;height: 500px;">
+						      <img class="d-block img-fluid" src="17097522_1801447680072484_4526787932363663857_o.jpg" alt="ninth slide" style="width:100%;height: 600px;">
+						      <div class="carousel-caption d-none d-md-block">
+							    <h3 style="font-family: Frijole; color: lavender;">#SOIREE 9.</h3>  
+							  </div>
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="17157471_1801446833405902_1768432669942563695_o.jpg" alt="tenth slide" style="width:100%;height: 500px;">
+						      <img class="d-block img-fluid" src="17157471_1801446833405902_1768432669942563695_o.jpg" alt="tenth slide" style="width:100%;height: 600px;">
+						      <div class="carousel-caption d-none d-md-block">
+							    <h3 style="font-family: Frijole; color: lavender;">#SOIREE 10.</h3>  
+							  </div>
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="19144087_1845578538992731_2636866978893376182_o.jpg" alt="eleventh slide" style="width:100%;height: 500px;">
+						      <img class="d-block img-fluid" src="19144087_1845578538992731_2636866978893376182_o.jpg" alt="eleventh slide" style="width:100%;height: 600px;">
+						      <div class="carousel-caption d-none d-md-block">
+							    <h3 style="font-family: Frijole; color: lavender;">#SOIREE 11.</h3>  
+							  </div>
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block img-fluid" src="19242987_1845581362325782_3100694981422585848_o.jpg" alt="twelveth slide" style="width:100%;height: 500px;">
+						      <img class="d-block img-fluid" src="19242987_1845581362325782_3100694981422585848_o.jpg" alt="twelveth slide" style="width:100%;height: 600px;">
+						      <div class="carousel-caption d-none d-md-block">
+							    <h3 style="font-family: Frijole; color: lavender;">#SOIREE 12.</h3>  
+							  </div>
 						    </div>
 						    
 						  </div>
@@ -255,10 +297,10 @@
 							  <h1 class="display-1">Hello, People!</h1>
 							  <p class="lead">Come and join the party..Lets make the the day better together.</p>
 							  <hr class="my-4">
-							  <h4 class="text-primary">Send us a <b>REQUEST</b> in case you are not invited. </h4>
-							  <p class="lead">
+							  <h4 class="text-primary">Send us a <b style="font-family: Margarine;">REQUEST</b> in case you are not invited. </h4>
+							  <!-- <p class="lead">
 							    <a class="btn btn-info btn-lg" href="#" role="button">SEE MORE</a>
-							  </p>
+							  </p> -->
 							</div>
 						</div>
 		

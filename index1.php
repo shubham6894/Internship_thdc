@@ -1,18 +1,28 @@
 <!doctype html>
 <html>
 	<head>
-		<title>ColoredCow</title>
+		<title>Edit Guests</title>
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 			<link href="https://fonts.googleapis.com/css?family=Luckiest Guy" rel="stylesheet">
 			<link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
 			<link href="https://fonts.googleapis.com/css?family=Margarine" rel="stylesheet">
 			<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<style type="text/css">
+        .btn:hover{
+            cursor: pointer;
+        }
+        a:hover{
+            cursor: pointer;
+            background-color:grey ;
+        }
+    </style>	
 	</head>
 		
 			<body>
 
 				  
-				<nav class="navbar sticky-top navbar-toggleable-md navbar-inverse bg-inverse" style="height: 70px;">
+				<nav class="navbar sticky-top navbar-toggleable-md navbar-inverse bg-inverse">
 					
 						<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -23,7 +33,8 @@
 							<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 								<ul class="navbar-nav">
 									<li class="nav-item active">
-										<a class="nav-link" href="admin.php" style="font-family: 'Luckiest Guy'; font-size: 20px;">SOIREE<span class="sr-only">(current)</span></a>
+										<a class="nav-link" href="admin.php" style="font-family: 'Luckiest Guy'; font-size: 20px;">
+										<i class="fa fa-home" aria-hidden="true"></i>SOIREE<span class="sr-only">(current)</span></a>
 									</li>
 									<li class="nav-item active">
 										<a class="nav-link" href="host_control_page1.php" style="font-family: 'Luckiest Guy'; font-size: 20px;">EVENTS<span class="sr-only">(current)</span></a>
@@ -37,7 +48,7 @@
 					<div class="container-fluid">
 					<div class="container">
 							
-							<h1 style="font-family: 'Bangers'; font-size: 50px;"> All Guests Details <span class="badge badge-info">Below</span></h1>
+							<h1 style="font-family: 'Bangers'; font-size: 50px;">Guests Details <span class="badge badge-info">Below</span></h1>
 							
 							<hr>
 							<?php
@@ -46,29 +57,33 @@
 							
 							
 							<div class="jumbotron text-white" style="background-image: url('69714266-event-wallpapers.jpg');opacity:0.6;">
-							<div class="row">
-								<div class="col-lg-6">
+							<center>
+							
+								<!-- <div class="col-lg-6">
 							<center>
 							<div class="container">
 							<div style="width: 105%; border: 2px dashed whitesmoke; padding-bottom:45px;">
 							<h5 style="font-family: 'Margarine'; font-size: 23px; padding-top:45px; ">SEE ALL PREVIOUS EVENTS<span class="badge badge-danger">click on the button below</span></h5>
-							<a href="allevents1.php" class="btn btn-outline-danger" role="button">Show All Events</a>
+							<a href="allevents1.php" class="btn btn-outline-danger" role="button">
+							<i class="fa fa-spinner fa-spin fa-fw"></i>SHOW ALL EVENTS</a>
 							</div>
 							</div>
 							</center>
-							</div>
+							</div> -->
 							
-							<div class="col-lg-6">
-							<center>
+							<div class="col-lg-8">
+							
 							<div class="container">
 							<div style="width: 105%; border: 2px dashed whitesmoke; padding-bottom:45px;">
 							<h5 style="font-family: 'Margarine'; font-size: 22px; padding-top:45px; ">ADD A NEW GUEST TO THE LIST<span class="badge badge-info">click on the button below</span></h5>
-							<button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">ADD NEW GUEST</button>
+							<button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add New Guest</button>
 							</div>
 							</div>
+							
+							</div>
+							
+							
 							</center>
-							</div>
-							</div>
 							</div>
 							</div>
 
@@ -79,7 +94,7 @@
 			  <div class="modal-dialog" role="document">
 			    <div class="modal-content">
 			      <div class="modal-header">
-			        <h3 class="modal-title" id="exampleModalLabel">NEW GUEST</h3>
+			        <h3 class="modal-title" id="exampleModalLabel" style="font-family: 'Bangers'; font-size: 30px;">NEW GUEST</h3>
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			          <span aria-hidden="true">&times;</span>
 			        </button>
@@ -177,13 +192,14 @@
 										    <div class="card-header" role="tablist" id="headingOne">
 										      <h5 class="mb-0">
 										        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-										         <center><h3 style="font-family: 'Bangers'; font-size: 40px;"> PREVIOUS EVENTS GUESTS LISTS</h3></center>
+										         <center><h3 style="font-family: 'Bangers'; font-size: 40px;"> PREVIOUS EVENTS GUESTS LISTS!</h3></center>
 										        </a>
 										      </h5>
 										    </div>
 
 										    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
 										      <div class="card-block">
+										      
 										      <div class="container" id="guestlist">			
 												<!-- <?php 
 												 //rsvp();
