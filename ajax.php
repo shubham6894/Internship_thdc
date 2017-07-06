@@ -1,13 +1,12 @@
 <?php
 require_once 'functions.php';
-// die("heehehehe");
-if (isset($_POST["action"])) {
-	
-	switch ($_POST["action"]) {
-		
-		case 'events':  $status=events();
-						print json_encode($status);
-						break;
+if (isset($_POST["action"])) 
+{	
+	switch ($_POST["action"]) 
+	{	
+		case 'events':  		$status=events();
+								print json_encode($status);
+								break;
 		
 		case 'guest_details':  $status=guest_details();
 								print json_encode($status);
@@ -21,11 +20,9 @@ if (isset($_POST["action"])) {
 								break;
 
 		case 'showallguests':	rsvp();
-							// die("heee");
 								break;
 
 		case 'transferguests': submit_requests();
-								// die("ncchjsdch");
 								break;
 
 		case 'rsvpconfirm': 	rsvpconfirm();
@@ -34,7 +31,6 @@ if (isset($_POST["action"])) {
 		case 'allevents':		showallevents();
 								break;
 		
-
 		case 'reject':			reject_guest();
 								break;
 		
@@ -46,7 +42,6 @@ if (isset($_POST["action"])) {
 
 		case 'delete_event':    delete_event();
 								break;													
-		
 		
 		default:				echo "Invalid";
 								break;
