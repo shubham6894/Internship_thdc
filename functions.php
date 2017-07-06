@@ -221,9 +221,8 @@
 		    while($row = $result->fetch_assoc()) 
 		    {   
 		        echo "<br><span style='font-size:60px;'>" . $row["event_name"]. "</span><br> 
-		         
 		        <br><span style='font-size:30px;'><i class='fa fa-calendar' aria-hidden='true'></i>&nbsp;" . $row["event_date"]. "</span><br> 
-		        <br><span style='font-size:30px;'><i class='fa fa-map-marker fa-lg' aria-hidden='true'></i>&nbsp;" . $row["event_venue"]. "</span><br>	<hr class='my-1'><br>";  
+		        <br><span style='font-size:30px;'><i class='fa fa-map-marker fa-lg' aria-hidden='true'></i>&nbsp;" . $row["event_venue"]. "</span><br><hr class='my-1'><br>";  
 		    }
 		} 
 		else
@@ -301,9 +300,7 @@
 						$output .='<td colspan="6">NO GUESTS IN THE LISTS</td>';
 						$output .=	'</tr>';	
 					}
-						$output .='</tbody>';
-						
-						
+						$output .='</tbody>';						
 						$output .='</table>';
 						echo $output;
 				}
@@ -363,8 +360,7 @@
 													<td width="13%">'.$row2["request_name"].'</td>
 													<td width="18%">'.$row2["request_emailid"].'</td>
 													<td width="13%">'.$row2["phonenumber"].'</td>
-													<td width="13%">'.$row2["request_gender"].'</td>
-													';
+													<td width="13%">'.$row2["request_gender"].'</td>';
 													if ($row2['status']=='REQUESTED') 
 													{
 														$output .='<td width="13%" style="color : blue">'.$row2["status"].'</td>' ;
@@ -573,6 +569,7 @@
 		$dbname = "database_for_coloredcow";
 
 		$event_id= @$_POST["update_event_id"];
+		
 		$conn = new mysqli($servername, $username, $password, $dbname);
 		if ($conn->connect_error) 
 		{
