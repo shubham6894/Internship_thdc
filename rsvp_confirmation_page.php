@@ -97,7 +97,7 @@
 			{
 				$output .='	<h4>warning! page not found. please check the address again</h4>
 							<div>
-							   	<a class="btn btn-success" href="http://localhost/Internship%20RSVP/index.php">HOME</a>
+							   	<a class="btn btn-success" href="http://ec2-13-59-90-252.us-east-2.compute.amazonaws.com/Internship_thdc/index.php">HOME</a>
 							</div>
 							</div>';
 			}
