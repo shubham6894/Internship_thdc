@@ -69,8 +69,8 @@
 			die("This person has already REQUESTED for the event");
 		}	
 		
-		$sql = "INSERT INTO new_guests (guest_name, guest_emailid, phone_number, guest_gender)
-				VALUES ('$guest_name', '$guest_emailid', '$phone_number', '$guest_gender')";
+		$sql = "INSERT INTO new_guests (guest_name, guest_emailid, phone_number, guest_gender,status)
+				VALUES ('$guest_name', '$guest_emailid', '$phone_number', '$guest_gender','PENDING')";
 
 		if ($conn->query($sql) === TRUE) 
 		{
@@ -118,8 +118,8 @@
 			die("This person has already REQUESTED for the event");
 		}
 
-		$sql = "INSERT INTO new_guests_requests (request_name, request_emailid, phonenumber, request_gender)
-				VALUES ('$request_name', '$request_emailid', '$phonenumber', '$request_gender')";
+		$sql = "INSERT INTO new_guests_requests (request_name, request_emailid, phonenumber, request_gender,status)
+				VALUES ('$request_name', '$request_emailid', '$phonenumber', '$request_gender','REQUESTED')";
 
 		if ($conn->query($sql) === TRUE) 
 		{
