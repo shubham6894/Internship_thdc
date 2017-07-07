@@ -122,7 +122,7 @@
 			$.ajax(
 			{
 				type: "POST",
-				url: "http://localhost/Internship%20RSVP/ajax.php",
+				url: "http://ec2-13-59-90-252.us-east-2.compute.amazonaws.com/Internship_thdc/ajax.php",
 				data: dataString,
 				success: function(result)
 				{
