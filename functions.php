@@ -193,7 +193,7 @@
 						WHERE guestid='$id_guest' ";				
 		if(mysqli_query($conn,$updatestatus)===TRUE)
 		{
-			echo "<h4>YOUR RESPONSE IS SUCCESSFULLY UPDATED <br><a role='button' class='btn btn-outline-success' href='http://localhost/Internship%20RSVP/index.php'>HOME</a></h4>";
+			echo "<h4>YOUR RESPONSE IS SUCCESSFULLY UPDATED <br><a role='button' class='btn btn-outline-success' href='http://ec2-13-59-90-252.us-east-2.compute.amazonaws.com/Internship_thdc/index.php'>HOME</a></h4>";
 		}
 		else
 		{
