@@ -12,6 +12,7 @@
 	   	$event_date=  @$_POST['event_date'];
 	   	$event_venue= @$_POST['event_venue'];
 
+
 		$conn = new mysqli($servername, $username, $password, $dbname);
 		if ($conn->connect_error) 
 		{
@@ -24,7 +25,7 @@
 
 		if ($conn->query($sql) === TRUE) 
 		{
-		    return ("Information has been successfully saved.");
+		    echo '<div class="alert alert-info" role="alert">"New Event has been successfully added."</div>';
 		} 
 
 		else 
@@ -70,11 +71,11 @@
 		}	
 		
 		$sql = "INSERT INTO new_guests (guest_name, guest_emailid, phone_number, guest_gender,status)
-				VALUES ('$guest_name', '$guest_emailid', '$phone_number', '$guest_gender','PENDING')";
+				VALUES ('$guest_name', '$guest_emailid', '$phone_number', '$guest_gender','Pending')";
 
 		if ($conn->query($sql) === TRUE) 
 		{
-		    return "New Guest Information has been successfully saved.";	
+		    echo '<div class="alert alert-info" role="alert">"New Guest has been successfully added."</div>';	
 		} 
 		else 
 		{
@@ -119,11 +120,11 @@
 		}
 
 		$sql = "INSERT INTO new_guests_requests (request_name, request_emailid, phonenumber, request_gender,status)
-				VALUES ('$request_name', '$request_emailid', '$phonenumber', '$request_gender','REQUESTED')";
+				VALUES ('$request_name', '$request_emailid', '$phonenumber', '$request_gender','Requested')";
 
 		if ($conn->query($sql) === TRUE) 
 		{
-		    return "Request has been successfully saved.";
+		    echo '<div class="alert alert-info" role="alert">Thank you for showing interest. We will connect to you soon.</div>';
 		} 
 		else 
 		{
@@ -151,7 +152,7 @@
 		$result=mysqli_query($conn,$k);
 		$p=mysqli_num_rows($result);
 		
-		$l="SELECT * FROM new_guests WHERE status='CONFIRM' AND guest_emailid='$your_email'";
+		$l="SELECT * FROM new_guests WHERE status='Confirm' AND guest_emailid='$your_email'";
 		$result1=mysqli_query($conn,$l);
 		$m=mysqli_num_rows($result1);
 		if ($m>0) 
@@ -165,13 +166,13 @@
 			$uniquecode=md5(uniqid(rand()));
 			$encryptuniquecode=base64_encode($uniquecode);
 			
-			echo "<a target='_blank' href='http://ec2-13-59-90-252.us-east-2.compute.amazonaws.com/Internship_thdc/rsvp_confirmation_page.php/?passkey=$encryptuniquecode'>CLICK TO RSVP</a>";
+			echo "<a target='_blank' href='http://localhost/Internship%20RSVP/rsvp_confirmation_page.php/?passkey=$encryptuniquecode'>CLICK TO RSVP</a>";
 			$sql="UPDATE new_guests SET random_token='$uniquecode' WHERE guest_emailid='$your_email'";
 			mysqli_query($conn, $sql);
 		}
 		else
 		{
-			echo "SORRY BUT YOU ARE NOT IN OUR GUEST LIST.HOPE TO SEE YOU ANOTHER TIME";
+			echo '<div class="alert alert-info" role="alert">"<strong>SORRY BUT YOU ARE NOT IN OUR GUEST LIST.</strong>HOPE TO SEE YOU ANOTHER TIME"</div>';
 		}
 		$conn->close();		
 	}
@@ -189,11 +190,11 @@
 		}	
 		$id_guest=$_POST['guestid'];	
 		$updatestatus=" UPDATE new_guests
-						SET status='CONFIRM'
+						SET status='Confirm'
 						WHERE guestid='$id_guest' ";				
 		if(mysqli_query($conn,$updatestatus)===TRUE)
 		{
-			echo "<h4>YOUR RESPONSE IS SUCCESSFULLY UPDATED <br><a role='button' class='btn btn-outline-success' href='http://ec2-13-59-90-252.us-east-2.compute.amazonaws.com/Internship_thdc/index.php'>HOME</a></h4>";
+			echo "<h4 style='color: green;'>Your Response is Successfully Updated !<br></h4>";
 		}
 		else
 		{
@@ -220,9 +221,9 @@
 		{
 		    while($row = $result->fetch_assoc()) 
 		    {   
-		        echo "<br><span style='font-size:60px;'>" . $row["event_name"]. "</span><br> 
-		        <br><span style='font-size:30px;'><i class='fa fa-calendar' aria-hidden='true'></i>&nbsp;" . $row["event_date"]. "</span><br> 
-		        <br><span style='font-size:30px;'><i class='fa fa-map-marker fa-lg' aria-hidden='true'></i>&nbsp;" . $row["event_venue"]. "</span><br><hr class='my-1'><br>";  
+		        echo "<span style='font-size:50px; '>" . $row["event_name"]. "</span><br> <br>
+		        <span style='font-size:30px;'><i class='fa fa-calendar' style=' color:black;'aria-hidden='true'></i>&nbsp;" . $row["event_date"]. "</span><br><br> 
+		        <span style='font-size:30px;'><i class='fa fa-map-marker fa-lg' style=' color:black;' aria-hidden='true'></i>&nbsp;" . $row["event_venue"]. "</span><br><br>";  
 		    }
 		} 
 		else
@@ -248,7 +249,7 @@
 		$procedure = "
 						CREATE PROCEDURE selectguest()
 						BEGIN  
-							SELECT * FROM new_guests;
+							SELECT * FROM new_guests ORDER BY guestid desc;
 						END;
 						";
 			if(mysqli_query($conn1, "drop PROCEDURE IF EXISTS selectguest"))
@@ -282,7 +283,7 @@
 							$output .='<td width="20%">'.$row["phone_number"].'</td>' ;
 							$output .='<td width="20%">'.$row["guest_gender"].'</td>' ;
 							
-							if ($row['status']=='CONFIRM') 
+							if ($row['status']=='Confirm') 
 							{
 								$output .='<td width="20%" style="color : green">'.$row["status"].'</td>' ;
 							}
@@ -324,7 +325,7 @@
 		$procedure = "
 						CREATE PROCEDURE select_requested_guest()
 						BEGIN  
-							SELECT * FROM new_guests_requests;
+							SELECT * FROM new_guests_requests ORDER BY status DESC;
 						END;
 					";
 			
@@ -340,12 +341,12 @@
 								<thead>
 									<tr>	
 										<th>#</th>
-										<th>Guest Name</th>
-										<th>Guest Email-id</th>
+										<th>Name</th>
+										<th>Email</th>
 										<th>Phone No.</th>
 										<th>Gender</th>
 										<th>Status</th>
-										<th>APPROVAL</th>
+										<th>Action</th>
 									</tr>
 								</thead>
 							<tbody>';
@@ -354,36 +355,42 @@
 									$y=1;
 									while ($row2=mysqli_fetch_array($result3)) 
 									{
-										$output .='
-												<tr class="table-danger">
-													<th scope="row">'.$y.'</th>	
-													<td width="13%">'.$row2["request_name"].'</td>
-													<td width="18%">'.$row2["request_emailid"].'</td>
-													<td width="13%">'.$row2["phonenumber"].'</td>
-													<td width="13%">'.$row2["request_gender"].'</td>';
-													if ($row2['status']=='REQUESTED') 
-													{
-														$output .='<td width="13%" style="color : blue">'.$row2["status"].'</td>' ;
-													}
-													else
-													{
-														$output .='<td width="13%" style="color:red;">'.$row2["status"].'</td>' ;	
-													}
-													
-													$output .='<td width="30%">
-													<button type="button" class="approve btn btn-info" id="'.$row2["request_id"].'">Approve</button> &nbsp; 
-													<button type="button" class="reject btn btn-danger" id="'.$row2["request_id"].'">Reject</button>
-													</td>
-												</tr>
-											';
-									$y=$y+1;
+										if($row2["status"]==="Requested"){
+                        $output .='
+                                <tr class="table-danger">
+                                	<th scope="row">'.$y.'</th>
+                                    <td width="15%">'.$row2["request_name"].'</td>
+                                    <td width="20%">'.$row2["request_emailid"].'</td>
+                                    <td width="15%">'.$row2["phonenumber"].'</td>
+                                    <td width="15%">'.$row2["request_gender"].'</td>
+                                    <td width="15%" style="color:blue;">'.$row2["status"].'</td>
+                                    <td width="25%"><button type="button" name="add" id="'.$row2["request_id"].'" class="btn btn-success btn-sm approve">Approve</button> &nbsp; 
+                                    <button type="button" name="reject" id="'.$row2["request_id"].'" class="btn btn-danger btn-sm reject">Reject</button></td>
+                                </tr>
+                        ';
+                        }else{
+                        $output .='
+                                <tr class="table-danger">
+   	                                <th scope="row">'.$y.'</th>
+                                    <td width="15%">'.$row2["request_name"].'</td>
+                                    <td width="20%">'.$row2["request_emailid"].'</td>
+                                    <td width="15%">'.$row2["phonenumber"].'</td>
+                                    <td width="15%">'.$row2["request_gender"].'</td> 	
+                                    <td width="15%" style="color:red;">'.$row2["status"].'</td>
+                                    <td width="25%"><button type="button" name="add" id="'.$row2["request_id"].'" class="btn btn-success btn-sm approve">Approve</button>
+                                    </td>
+                                </tr>';                            
+
+                        }
+                        $y=$y+1;
 									}
+									
 								}
 								else
 								{
 									$output .='
 												<tr class="table-info">
-													<td colspan="6"> NO REQUESTS YET !!!!!!!</td>
+													<td colspan="7"> NO REQUESTS YET !!!!!!!</td>
 												</tr>
 											';
 								}
@@ -402,27 +409,59 @@
 		$password = "";
 		$dbname = "database_for_coloredcow";
 		$conn = new mysqli($servername, $username, $password, $dbname);
+		$output='';
 		if ($conn->connect_error) 
 		{
 		    die("Connection failed: " . $conn->connect_error);
 		} 
 
-		$sql = "SELECT * FROM new_event ORDER BY 'event_date'";
+		$sql = "SELECT * FROM new_event ORDER BY event_date asc";
 		$result = $conn->query($sql);
-
-		if ($result->num_rows > 0) 
-		{
-		    while($row = $result->fetch_assoc()) 
-		    {
-		        echo "<h6>EVENT NAME:</h6> ". $row['event_name']." <br><br><h6>EVENT DATE:</h6> ". $row['event_date']." <br><br><h6>EVENT VENUE:</h6> ". $row['event_venue']." <br><br>
-		        <button type='button' class='edit btn btn-info' id='".$row["event_id"]."' data-toggle='modal' data-target='#editModal' data-whatever='@mdo'> Edit </button> &nbsp; 
-				<button type='button' class='delete btn btn-danger' id='".$row["event_id"]."'> Delete </button> <hr>";
-		    }
-		} 
-		else
-		{
-		    echo "0 results";
-		}
+		$output .='
+							<table class="table table-hover table-striped
+							table-bordered table-responsive">
+								<thead>
+									<tr>	
+										<th>#</th>
+										<th>Event Name</th>
+										<th>Event Date</th>
+										<th>Event Venue</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+							<tbody>';
+				    			if ($result->num_rows > 0)
+				    			{
+									$y=1;
+									while ($row=$result->fetch_assoc()) 
+									{
+										$output .='
+												<tr class="table-danger">
+													<th scope="row">'.$y.'</th>	
+													<td width="30%">'.$row["event_name"].'</td>
+													<td width="25%">'.$row["event_date"].'</td>
+													<td width="25%">'.$row["event_venue"].'</td>';
+													
+													$output .='<td width="20%">
+													<button type="button" class="btn btn-success edit" id="'.$row["event_id"].'" data-toggle="modal" data-target="#editModal" data-whatever="@mdo">Edit</button> &nbsp; 
+													<button type="button" class="delete btn btn-danger" id="'.$row["event_id"].'">Delete</button>
+													</td>
+												</tr>
+											';
+									$y=$y+1;
+									}
+								}
+								else
+								{
+									$output .='
+												<tr class="table-info">
+													<td colspan="6"> 0 results!!!!</td>
+												</tr>
+											';
+								}
+								$output .='</tbody>
+										</table>';
+								echo $output;
 		$conn->close();
 	}
 
@@ -449,7 +488,7 @@
 		$gender= $row['request_gender'];
 
 		$result7= "INSERT INTO new_guests(guest_name, guest_emailid, phone_number, guest_gender, status)
-					VALUES('$name', '$email', '$phone', '$gender', 'CONFIRM')";
+					VALUES('$name', '$email', '$phone', '$gender', 'Confirm')";
 		if(mysqli_query($conn1, $result7)===TRUE)
 		{
 			echo $name."  REQUEST ACCEPTED";
@@ -476,7 +515,7 @@
 		}
 		
 		$request_id= mysqli_real_escape_string($conn1, $_POST["request_id"]);	
-		$results=" SELECT status FROM new_guests_requests WHERE status='REJECTED' AND request_id='$request_id'";
+		$results=" SELECT status FROM new_guests_requests WHERE status='Rejected' AND request_id='$request_id'";
 		$confirm=mysqli_query($conn1, $results);
 		if (mysqli_num_rows($confirm)>0) 
 		{
@@ -485,7 +524,7 @@
 		else
 		{
 			$result9= "UPDATE new_guests_requests 
-						SET status='REJECTED' 
+						SET status='Rejected' 
 						WHERE request_id='$request_id'";
 			
 			if(mysqli_query($conn1, $result9)===TRUE)

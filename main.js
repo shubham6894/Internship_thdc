@@ -22,11 +22,18 @@ $(document).ready(function()
 			cache: false,
 			success: function(result)
 			{
-				alert(result);
+				// alert(result);
+				show_all_events();
 				document.getElementById("event_form").reset();
+				document.getElementById("msg1").innerHTML=result;
 			}	
 		});	
 	});
+
+	$("#d").click(function(){
+        document.getElementById("msg1").innerHTML='';
+        
+   });
 
 	$("#Submit_guests").on("click",function()
 	{
@@ -46,12 +53,16 @@ $(document).ready(function()
 			cache: false,
 			success: function(result)
 			{
-				alert(result);
 				document.getElementById("guest_form").reset();
+				document.getElementById("msg3").innerHTML=result;
 				fetch_guest();
 			}	
 		});	
 	});
+	$("#guestclose").click(function(){
+        document.getElementById("msg3").innerHTML='';
+        
+   });
 
 	$("#Submit_rsvp").on("click",function()
 	{
@@ -76,6 +87,10 @@ $(document).ready(function()
 			}	
 		});		
 	});
+	$("#closersvp").click(function(){
+        document.getElementById("msg").innerHTML='';
+        
+   });
 	
 	$("#Submit_request").on("click",function()
 	{
@@ -95,14 +110,24 @@ $(document).ready(function()
 			cache: false,
 			success: function(result)
 			{
-				alert(result);
-				document.getElementById("request_form").reset();	
+				console.log(result);
+				document.getElementById("request_form").reset();
+				document.getElementById("msg2").innerHTML=result;
+
 			}	
 		});
 	});
 
+	$("#close").click(function(){
+        document.getElementById("msg2").innerHTML='';
+        
+   });
+
 	$(document).on('click','.approve',function()
 	{
+		var check1=confirm("Are You Sure you really want to approve this guest?");
+		if (check1==true) 
+		{
 		var id= $(this).attr("id");	
 		var approve="approve";
 		$.ajax(
@@ -113,15 +138,18 @@ $(document).ready(function()
 			cache: false,
 			success: function(result)
 			{
-				alert(result);
 				fetch_guest();
 				guest_transfer();
 			}
 		});
+	}
 	});
 
 	$(document).on('click','.reject',function()
 	{
+		var check2=confirm("Are You Sure you really want to reject this guest?");
+		if (check2==true) 
+		{
 		var id= $(this).attr("id");
 		var reject="reject";
 		$.ajax(
@@ -132,12 +160,12 @@ $(document).ready(function()
 			cache: false,
 			success: function(result)
 			{			
-				alert(result);
 				fetch_guest();
 				guest_transfer();
 			
 			}
 		});
+		}
 	});
 
 	function fetch_guest()
@@ -225,7 +253,7 @@ $(document).ready(function()
 			cache: false,
 			success: function(result)
 			{
-				alert(result);
+				
 				document.getElementById("edit_event").reset();
 				show_all_events();
 			}	
@@ -233,7 +261,10 @@ $(document).ready(function()
 	});
 
 	$(document).on('click','.delete',function()
-	{	
+	{
+		var check=confirm("Are You Sure you really want to delete it?");
+		if (check==true) 
+		{
 		var update_event_id= $(this).attr("id");
 		var action="delete_event";
 		$.ajax(
@@ -248,6 +279,8 @@ $(document).ready(function()
 				show_all_events();	
 			}
 		});
+	}
+		
 	});
  return false;
 });

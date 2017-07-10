@@ -4,19 +4,16 @@ if (isset($_POST["action"]))
 {	
 	switch ($_POST["action"]) 
 	{	
-		case 'events':  		$status=events();
-								print json_encode($status);
+		case 'events':  		events();
 								break;
 		
-		case 'guest_details':  $status=guest_details();
-								print json_encode($status);
+		case 'guest_details':  	guest_details();
 								break;
 		
 		case 'update_details':  update_details();
 								break;
 								
-		case 'requests':        $status=requests();
-								print json_encode($status);
+		case 'requests':        requests();
 								break;
 
 		case 'showallguests':	rsvp();

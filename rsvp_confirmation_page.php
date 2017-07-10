@@ -5,6 +5,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Luckiest Guy" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<style type="text/css">
@@ -12,27 +13,24 @@
         {
             cursor: pointer;
         }
-        a:hover
-        {
-            cursor: pointer;
-            background-color:grey ;
-        }
+        
     </style>
 </head>
 <body>
 	
-	<nav class="navbar sticky-top navbar-toggleable-md navbar-inverse bg-inverse" style="height: 70px;">				
-		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+	<nav class=" navbar sticky-top navbar-toggleable-md navbar-inverse bg-inverse">				
+		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
 		</button>
-		<a class="navbar-brand" href="#" style="font-family: 'Pacifico';">'RSVP'</a>
+		<a class="navbar-brand" href="#""><img src="http://localhost/Internship%20RSVP/RSVP_IMAGES/logo.png" width="180" height="45" class="d-inline-block align-top" alt=""></a>
 		<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-			<ul class="navbar-nav ">
+			<ul class="navbar-nav">
 				<li class="nav-item active">
-					<a class="nav-link" href="index.php">
-						<H5 style="font-family: 'Luckiest Guy'; font-size: 20px;"><i class="fa fa-home" aria-hidden="true"></i>HOME</H5><span class="sr-only">(current)</span>
-				    </a>
+					<a role="button" class="btn btn-outline-warning" href="http://localhost/Internship%20RSVP/index.php" style="font-family: 'Oswald'; font-size: 17px;">
+						<i class="fa fa-home" aria-hidden="true"></i>&nbsp;HOME<span class="sr-only">(current)</span>
+					</a>
 				</li>
-			</ul>				    
+			</ul>
 		</div>
 	</nav>
 		
@@ -57,50 +55,27 @@
 				$sql=" SELECT * FROM new_guests WHERE random_token='$decryptcode'";
 				$result=mysqli_query($conn,$sql);
 				$row = $result->fetch_assoc();	
-				$output .='	<h4><strong>Thank you!</strong> Please press RSVP button to get your status CONFIRM.</h4>
-							<br>	
-							<div>
-								<form id="rsvp_details_form">
-									<label for="recipient-name" class="form-control-label">
-										<h6>GUEST NAME:</h6>
-									</label>
-									<br>
-									<input type="text" id="rsvp_name" name="rsvp_name" value="'.$row["guest_name"].'" readonly>
-									<br><br>
-									<label for="recipient-email" class="form-control-label">
-										<h6>GUEST EMAIL:</h6>
-									</label>
-									<br>
-									<input type="email"	 id="rsvp_email" name="rsvp_email" value="'.$row["guest_emailid"].'" readonly>
-									<br><br>
-									<label for="example-text-input" class="form-control-label">
-										<h6>GUEST PHONE NUMBER:</h6>
-									</label>
-									<br>
-									<input type="number" id="rsvp_phone" name="rsvp_phone" value="'.$row["phone_number"].'" readonly>
-									<br><br>
-									<label for="recipient-name" class="form-control-label">
-										<h6>GENDER:</h6>
-									</label>
-									<br>
-									<input type="text" id="rsvp_gender" name="rsvp_gender" value="'.$row["guest_gender"].'" readonly>
-									<input type="hidden" id="guestid" name="guestid" value="'.$row["guestid"].'">
-									<br>
-									<br>
-									<input type="button" class="btn btn-success" id="confirm_rsvp" value="RSVP">
-								</form>	
-								<p id="msgconfirm"></p>
-							</div>
-						</div>';
-			}
-			else
-			{
-				$output .='	<h4>warning! page not found. please check the address again</h4>
-							<div>
-							   	<a class="btn btn-success" href="http://ec2-13-59-90-252.us-east-2.compute.amazonaws.com/Internship_thdc/index.php">HOME</a>
-							</div>
-							</div>';
-			}
+			$output .='<br><center><h2 class="card-title text-center text-warning" style="font-family:Oswald;">Thank You! Looking forward to see you at the event.</h2>
+                            <div class="card-block">
+                                    <h2><span style="font-size:45px;"><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>&nbsp;'.$row["guest_name"].'</h2><br>
+                                    <h2><span style="font-size:45px;"><i class="fa fa-envelope-open-o" aria-hidden="true"></i>&nbsp;</span>'.$row["guest_emailid"].'</h2><br>
+                                    <h2><span style="font-size:45px;"><i class="fa fa-mobile" aria-hidden="true"></i>&nbsp;</span>'.$row["phone_number"].'</h2>
+                                    <form id="confirm_details_form"><br>
+                                    <input type="hidden" id="guestid" name="guestid" value="'.$row["guestid"].'">
+                                    <input type="button" class="btn btn-success" id="confirm_rsvp" value="Confirm">
+                                </form>
+                                <br>
+                                <p id="msgconfirm"></p>
+                            </div>
+                        <center>';            
+        }else {
+            $output .='<center><h4 class="card-title text-danger">WARNING!</h4>
+                            <p class="card-text text-warning">ONLY SPECIFIC USERS ARE AUTHORIZED TO THIS PAGE. THANK YOU<p>
+                            <div class="card-block">
+                                   <a class="btn btn-success" href="http://localhost/Internship%20RSVP/index.php">Get Back</a>
+                            </div>
+                        </center>';            
+        }
 			echo $output;
 		?>
 
@@ -117,12 +92,12 @@
 	{
 		$("#confirm_rsvp").on("click",function()
 		{
-			var confirmForm= $('#rsvp_details_form');
+			var confirmForm= $('#confirm_details_form');
 			var dataString = "action=rsvpconfirm&"+confirmForm.serialize();
 			$.ajax(
 			{
 				type: "POST",
-				url: "http://ec2-13-59-90-252.us-east-2.compute.amazonaws.com/Internship_thdc/ajax.php",
+				url: "http://localhost/Internship%20RSVP/ajax.php",
 				data: dataString,
 				success: function(result)
 				{
