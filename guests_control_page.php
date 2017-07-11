@@ -32,14 +32,14 @@
 					</a>
 				</li>&nbsp;
 				<li class="nav-item active">
-					<a role="button" class="btn btn-outline-warning" href="events_control_page.php" style="font-family: 'Oswald'; font-size: 17px;">EVENTS<span class="sr-only">(current)</span></a>
+					<a role="button" class="btn btn-outline-warning" href="http://localhost/Internship%20RSVP/events_control_page.php" style="font-family: 'Oswald'; font-size: 17px;">EVENTS<span class="sr-only">(current)</span></a>
 				</li>
 			</ul>
 		</div>
 	</nav>
 	
 	<?php
-	require("functions.php");
+	require_once("functions.php");
 	?>
 	<div class="container-fluid">
 		

@@ -3,6 +3,22 @@ $(document).ready(function()
 	fetch_guest();
 	guest_transfer();
 	show_all_events();
+
+		$("#confirm_rsvp").on("click",function()
+		{
+			var confirmForm= $('#confirm_details_form');
+			var dataString = "action=rsvpconfirm&"+confirmForm.serialize();
+			$.ajax(
+			{
+				type: "POST",
+				url: "ajax.php",
+				data: dataString,
+				success: function(result)
+				{
+					$("#msgconfirm").html(result);
+				}
+			});
+		});
 	
 	$("#Submit_event").on("click",function()
 	{
@@ -53,6 +69,7 @@ $(document).ready(function()
 			cache: false,
 			success: function(result)
 			{
+				console.log(result);
 				document.getElementById("guest_form").reset();
 				document.getElementById("msg3").innerHTML=result;
 				fetch_guest();

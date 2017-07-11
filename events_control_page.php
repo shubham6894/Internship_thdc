@@ -62,7 +62,7 @@
 				<div style="font-family: Paprika; color: black; font-size: ;">
 					<h3 class="text-primary" style="font-family: Bangers; font-size: 40px;">Current Event</h3>
 					<?php
-					require("functions.php");
+					require_once("functions.php");
 					show_events();
 					?>
 				</div>			

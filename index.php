@@ -57,7 +57,7 @@
 						<h1 style="font-family: 'Oswald'; font-size: 15px; color: bisque; padding-top: 15px;">Coming Up...</h1>
 						<div style="color: white;">
 						<?php
-							require("functions.php");
+							require_once("functions.php");
 							show_events();
 						?>
 						</div>
@@ -171,7 +171,7 @@
 		  	<br>
 		  	<p class="lead">Hello People, Its already been 3 years of ColoredCow's fantastic journey so far and we have still a long way to go to reach our destination. We are very much dedicated to our work and build our products with passion. But along with the work, we make sure that we don't let go of our life without any enjoyment. So to make some enjoyable moments together we celebrate every first Saturday of the month which we call it "Soiree". There is music, food, drinks and moreover happiness all around. We know everyone is so busy in their life but if you can take a little time out of it and join this event, it can add some old days memories back to your life.</p>
 		  	<hr class="my-4">
-		  	<h4 class="text" style="">Come and join the  <b style="font-family: Margarine; color: crimson;">Party</b>. Lets make the day better together.</h4>
+		  	<h4 class="text" style="">Come and join the Party. Lets make the day better together.</h4>
 		</div>
 		</div>
 		<hr>
@@ -279,6 +279,14 @@
 					<span class="sr-only">Next</span>
 				</a>
 			</div>
+			<hr>
+			<div class="container">
+			<footer style="color: black; background-color: ;">
+  				<p>Developed by: Shubham Nautiyal</p>
+  				<p>Contact information: <a href="mailto:someone@example.com">shubhamnautiyal6894@gmail.com</a>.</p>
+			</footer>
+			</div>
+			
 		</div>
 			<br>
 	
