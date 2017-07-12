@@ -177,9 +177,9 @@
 		{
 		    while($row = $result_event_details->fetch_assoc()) 
 		    {   
-		        echo "<span style='font-size:50px; '>" . $row["event_name"]. "</span><br> <br>
-		        <span style='font-size:30px;'><i class='fa fa-calendar' style=' color:black;'aria-hidden='true'></i>&nbsp;" . $row["event_date"]. "</span><br><br> 
-		        <span style='font-size:30px;'><i class='fa fa-map-marker fa-lg' style=' color:black;' aria-hidden='true'></i>&nbsp;" . $row["event_venue"]. "</span><br><br>";  
+		        echo "<span style='font-size:56px; '>" . $row["event_name"]. "</span><br> <br>
+		        <span style='font-size:35px;'><i class='fa fa-calendar' style=' color:black;'aria-hidden='true'></i>&nbsp;" . $row["event_date"]. "</span><br><br> 
+		        <span style='font-size:35px;'><i class='fa fa-map-marker fa-lg' style=' color:black;' aria-hidden='true'></i>&nbsp;" . $row["event_venue"]. "</span><br><br>";  
 		    }
 		} 
 		else

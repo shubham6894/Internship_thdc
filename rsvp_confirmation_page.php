@@ -26,7 +26,7 @@
 		<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 			<ul class="navbar-nav">
 				<li class="nav-item active">
-					<a role="button" class="btn btn-outline-warning" href="index.php" style="font-family: 'Oswald'; font-size: 17px;">
+					<a role="button" class="btn btn-outline-secondary" href="index.php" style="font-family: 'Oswald'; font-size: 17px;">
 						<i class="fa fa-home" aria-hidden="true"></i>&nbsp;HOME<span class="sr-only">(current)</span>
 					</a>
 				</li>
